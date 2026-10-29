@@ -1,0 +1,425 @@
+/* ==========================================================================
+   SUTRA LAYOUT ARCHITECTURE
+   Three-Zone Layout: Icon Dock | Secondary Nav Sidebar | Main Canvas
+   ========================================================================== */
+
+/* Full Viewport App Shell (No Outer Margins or Padding) */
+.sutra-viewport-wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: var(--color-surface-canvas);
+  overflow: hidden;
+}
+
+.sutra-app-window {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  background-color: var(--color-surface-canvas);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Top Window Chrome (Browser / App Frame Titlebar)
+   -------------------------------------------------------------------------- */
+.sutra-window-chrome {
+  height: 52px;
+  padding: 0 var(--spacing-5);
+  background-color: var(--material-glass-chrome-bg, rgba(255, 255, 255, 0.82));
+  backdrop-filter: var(--material-glass-blur, blur(20px) saturate(180%));
+  -webkit-backdrop-filter: var(--material-glass-blur, blur(20px) saturate(180%));
+  border-bottom: var(--border-width-hairline) var(--border-style-solid) var(--color-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.sutra-chrome-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.sutra-window-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.sutra-control-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  cursor: pointer;
+  transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring);
+}
+
+.sutra-control-dot:hover {
+  transform: scale(1.15);
+}
+
+.sutra-control-dot:active {
+  transform: scale(0.90);
+}
+
+.sutra-control-close { background-color: var(--color-control-close); border: 1px solid var(--color-control-close-border); }
+.sutra-control-minimize { background-color: var(--color-control-minimize); border: 1px solid var(--color-control-minimize-border); }
+.sutra-control-expand { background-color: var(--color-control-expand); border: 1px solid var(--color-control-expand-border); }
+
+.sutra-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--color-icon-muted);
+}
+
+.sutra-chrome-btn {
+  width: var(--size-element-sm);
+  height: var(--size-element-sm);
+  border-radius: var(--radius-inner);
+  color: var(--color-icon-secondary);
+  transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring),
+              background-color var(--duration-micro, 160ms) ease,
+              color var(--duration-micro, 160ms) ease;
+}
+
+.sutra-chrome-btn:hover {
+  background-color: var(--color-surface-card-subtle);
+  color: var(--color-icon-primary);
+}
+
+.sutra-chrome-btn:active {
+  transform: scale(0.92);
+}
+
+/* Address / URL Bar */
+.sutra-chrome-center {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 var(--spacing-4);
+}
+
+.sutra-address-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  height: var(--size-element-md);
+  padding: 0 var(--spacing-3);
+  background-color: var(--color-surface-card-subtle);
+  border: var(--border-width-hairline) var(--border-style-solid) var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  transition: border-color var(--duration-micro, 160ms) ease,
+              background-color var(--duration-micro, 160ms) ease;
+}
+
+.sutra-address-bar:hover {
+  border-color: var(--color-border-hover);
+  background-color: var(--color-surface-card);
+}
+
+.sutra-address-url {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Storage / Status Widget in Top Right Chrome */
+.sutra-chrome-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.sutra-storage-widget {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: 4px var(--spacing-3);
+  background-color: var(--color-surface-card-subtle);
+  border: var(--border-width-hairline) var(--border-style-solid) var(--color-border-subtle);
+  border-radius: var(--radius-full);
+}
+
+.sutra-storage-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-xs);
+}
+
+.sutra-storage-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.sutra-storage-value {
+  color: var(--color-text-tertiary);
+}
+
+.sutra-storage-progress {
+  width: 72px;
+  height: 6px;
+  background-color: var(--color-border-default);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.sutra-storage-bar-fill {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-brand-primary) 0%, var(--color-accent-purple, #8B5CF6) 100%);
+  border-radius: var(--radius-full);
+}
+
+/* --------------------------------------------------------------------------
+   App Core Shell (Icon Dock + Main Workspace)
+   -------------------------------------------------------------------------- */
+.sutra-app-shell {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ZONE 1: Far Left Thin Icon Dock */
+.sutra-icon-dock {
+  background-color: var(--color-surface-dock, var(--material-glass-chrome-bg, rgba(255, 255, 255, 0.88)));
+  backdrop-filter: var(--material-glass-blur, blur(20px) saturate(180%));
+  -webkit-backdrop-filter: var(--material-glass-blur, blur(20px) saturate(180%));
+  border-right: var(--border-width-hairline) var(--border-style-solid) var(--color-surface-dock-border, var(--color-border-default));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) 0;
+  z-index: 500;
+  user-select: none;
+  transition: background-color var(--duration-normal, 240ms) ease, border-color var(--duration-normal, 240ms) ease;
+}
+
+.sutra-icon-dock:has(.sutra-surface-menu.is-open),
+.sutra-icon-dock.has-open-menu {
+  z-index: 10000;
+}
+
+.sutra-dock-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+.sutra-dock-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-element);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-dock-logo-bg, linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%));
+  color: var(--color-surface-dock-logo-color, var(--color-brand-primary));
+  margin-bottom: var(--spacing-2);
+}
+
+.sutra-dock-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-element);
+  color: var(--color-dock-btn-color, var(--color-icon-secondary));
+  background-color: var(--color-dock-btn-bg, transparent);
+  position: relative;
+  border: var(--border-width-hairline) var(--border-style-solid) transparent;
+  box-sizing: border-box;
+  transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring),
+              background-color var(--duration-micro, 160ms) ease,
+              border-color var(--duration-micro, 160ms) ease,
+              box-shadow var(--duration-micro, 160ms) ease,
+              color var(--duration-micro, 160ms) ease;
+}
+
+.sutra-dock-btn:hover {
+  background-color: var(--color-dock-btn-hover-bg, var(--color-surface-card-subtle));
+  color: var(--color-dock-btn-hover-color, var(--color-text-primary));
+}
+
+.sutra-dock-btn:active {
+  transform: scale(0.93);
+}
+
+.sutra-dock-btn.active {
+  background-color: var(--color-dock-btn-active-bg, var(--color-brand-subtle, #EFF6FF));
+  color: var(--color-dock-btn-active-color, var(--color-brand-primary, #006EF5));
+  border-color: var(--color-dock-btn-active-border, var(--color-border-default, #E2E8F0));
+  box-shadow: var(--shadow-card-subtle);
+}
+
+.sutra-dock-btn.active:hover {
+  background-color: var(--color-dock-btn-active-hover-bg, var(--color-dock-btn-active-bg, var(--color-brand-subtle, #EFF6FF)));
+  border-color: var(--color-dock-btn-active-hover-border, var(--color-dock-btn-active-border, var(--color-border-hover, #CBD5E1)));
+  color: var(--color-dock-btn-active-hover-color, var(--color-dock-btn-active-color, var(--color-brand-primary-hover, #005BD6)));
+}
+
+[data-surface-theme="contrast"] .sutra-dock-btn.active:hover {
+  background-color: var(--color-dock-btn-active-hover-bg, #243247);
+  border-color: var(--color-dock-btn-active-hover-border, #475569);
+  color: var(--color-dock-btn-active-hover-color, #38BDF8);
+}
+
+.sutra-dock-btn.active:active {
+  transform: scale(0.94);
+}
+
+.sutra-dock-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.75;
+  transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring),
+              color var(--duration-micro, 160ms) ease;
+}
+
+.sutra-dock-btn.active svg {
+  stroke-width: 2.25;
+  width: 20px;
+  height: 20px;
+}
+
+.sutra-dock-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-status-error-text, #DC2626);
+  border: 2px solid var(--color-surface-card);
+  border-radius: var(--radius-full);
+}
+
+.sutra-dock-add-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-element);
+  background-color: var(--color-surface-card-subtle);
+  border: var(--border-width-hairline) var(--border-style-dashed) var(--color-border-default);
+  color: var(--color-icon-secondary);
+  transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring),
+              background-color var(--duration-micro, 160ms) ease,
+              border-color var(--duration-micro, 160ms) ease,
+              color var(--duration-micro, 160ms) ease;
+}
+
+.sutra-dock-add-btn:hover {
+  background-color: var(--color-surface-card-subtle);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+.sutra-dock-add-btn:active {
+  transform: scale(0.93);
+}
+
+/* ZONE 2: Secondary Navigation Sidebar (Tree & Drawer Panel) */
+.sutra-nav-sidebar {
+  background-color: var(--color-surface-canvas-subtle);
+  border-right: var(--border-width-hairline) var(--border-style-solid) var(--color-border-default);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--spacing-4);
+  gap: var(--spacing-4);
+  position: relative;
+}
+
+/* Optional Contrast Mode for Sidebar (Matches the dark slate accent in screenshot if enabled) */
+.sutra-nav-sidebar.theme-contrast {
+  background-color: var(--color-surface-dock, #0F172A);
+  color: var(--color-text-inverse, #FFFFFF);
+  border-right-color: var(--color-surface-dock-active, #1E293B);
+}
+
+/* ZONE 3: Main Workspace Canvas */
+.sutra-main-canvas {
+  background-color: var(--color-surface-canvas);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6);
+  gap: var(--spacing-6);
+  position: relative;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .sutra-app-shell {
+    grid-template-columns: 68px 250px 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .sutra-app-shell {
+    grid-template-columns: 68px 1fr;
+  }
+  .sutra-nav-sidebar {
+    display: none;
+  }
+  .sutra-nav-sidebar.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 68px;
+    width: 280px;
+    z-index: 20;
+    box-shadow: var(--shadow-card-floating);
+  }
+}
+
+@media (max-width: 640px) {
+  .sutra-app-shell {
+    grid-template-columns: 50px 1fr;
+  }
+  .sutra-icon-dock {
+    padding: var(--spacing-2) 0;
+  }
+  .sutra-dock-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .sutra-dock-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+  .sutra-dock-btn.active svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-height: 600px) {
+  .sutra-viewport-wrapper,
+  .sutra-app-window,
+  .sutra-app-shell {
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+}

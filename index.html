@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sutra UI - Agent Catalogue</title>
+  
+  <!-- Google Fonts: Open Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <!-- Sutra Design System Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="s08-sidebar-collapsed">
+
+  <!-- Fullscreen App Container -->
+  <div class="sutra-viewport-wrapper">
+    <div class="sutra-app-window">
+      <div class="sutra-app-shell">
+
+        <!-- ==================================================================
+             ZONE 1: FAR LEFT THIN ICON DOCK (Primary Navigation Rail)
+             ================================================================== -->
+        <aside class="sutra-icon-dock" aria-label="Primary Navigation Dock">
+          
+          <!-- Top Icons Cluster (Logo removed per user feedback) -->
+          <div class="sutra-dock-cluster">
+
+            <!-- Agent Catalogue (Active Landing View) -->
+            <button class="sutra-dock-btn active" aria-label="Agent Catalogue" title="Agent Catalogue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                <rect width="7" height="7" x="3" y="14" rx="1"/>
+              </svg>
+            </button>
+
+            <!-- Workspace / Projects -->
+            <button class="sutra-dock-btn" aria-label="Workspaces" title="Workspaces">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
+              </svg>
+            </button>
+
+          </div>
+
+          <!-- Bottom Utilities -->
+          <div class="sutra-dock-cluster">
+            <!-- Surface Theme Switcher (Crisp / Contrast / Warm / Dark) -->
+            <div class="sutra-surface-theme-wrap" id="sutra-surface-theme-wrap">
+              <button class="sutra-dock-btn" id="sutra-dock-theme-btn" aria-label="Surface Colors & Themes" title="Surface Colors & Themes" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 3a9 9 0 0 1 9 9 9 9 0 0 1-9 9V3z"/>
+                </svg>
+              </button>
+
+              <!-- Popover Menu with live theme switching -->
+              <div class="sutra-surface-menu" id="sutra-surface-menu" role="menu">
+                <div class="sutra-surface-menu-header">
+                  <span>Surface Colors</span>
+                </div>
+                <button class="sutra-surface-option active" data-surface="crisp" role="menuitem" type="button">
+                  <span class="sutra-surface-swatch crisp"></span>
+                  <div class="sutra-surface-meta">
+                    <span class="sutra-surface-name">1. Modern Crisp</span>
+                    <span class="sutra-surface-sub">Slate-50 & pure white (Default)</span>
+                  </div>
+                  <svg class="sutra-surface-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+                <button class="sutra-surface-option" data-surface="contrast" role="menuitem" type="button">
+                  <span class="sutra-surface-swatch contrast"></span>
+                  <div class="sutra-surface-meta">
+                    <span class="sutra-surface-name">2. Contrast Dock</span>
+                    <span class="sutra-surface-sub">Obsidian dock & white canvas</span>
+                  </div>
+                  <svg class="sutra-surface-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+                <button class="sutra-surface-option" data-surface="warm" role="menuitem" type="button">
+                  <span class="sutra-surface-swatch warm"></span>
+                  <div class="sutra-surface-meta">
+                    <span class="sutra-surface-name">3. Warm Minimalist</span>
+                    <span class="sutra-surface-sub">Warm zinc canvas & soft gray</span>
+                  </div>
+                  <svg class="sutra-surface-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+                <div class="sutra-surface-divider"></div>
+                <button class="sutra-surface-option" data-surface="dark" role="menuitem" type="button">
+                  <span class="sutra-surface-swatch dark"></span>
+                  <div class="sutra-surface-meta">
+                    <span class="sutra-surface-name">4. Obsidian Dark</span>
+                    <span class="sutra-surface-sub">Zero-glare enterprise dark</span>
+                  </div>
+                  <svg class="sutra-surface-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Settings -->
+            <button class="sutra-dock-btn" aria-label="Settings" title="Settings">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+
+            <!-- Button Variation Group Preview (Design System) -->
+            <button class="sutra-dock-btn" id="sutra-dock-buttons-btn" aria-label="Button Variations" title="Button Variations (#006EF5)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="12" x="2" y="6" rx="6"/>
+                <circle cx="8" cy="12" r="2.5" fill="currentColor"/>
+              </svg>
+            </button>
+
+            <!-- User Profile / Account -->
+            <button class="sutra-dock-btn" aria-label="Profile" title="Profile">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </button>
+          </div>
+
+        </aside>
+
+        <!-- ==================================================================
+             ZONE 2: MAIN WORKSPACE CANVAS - AGENT CATALOGUE
+             ================================================================== -->
+        <main class="sutra-catalogue-container" id="sutra-catalogue-view" role="main">
+          
+          <!-- Catalogue Header -->
+          <header class="sutra-catalogue-header">
+            <h1 class="sutra-catalogue-title">Agent Catalogue</h1>
+            <p class="sutra-catalogue-subtitle">
+              Discover and deploy specialized AI agents tailored for specific tasks. From code generation to creative writing, find the perfect assistant for your workflow.
+            </p>
+          </header>
+
+          <!-- Search & Filters & View Switcher Bar -->
+          <div class="sutra-catalogue-toolbar">
+            
+            <!-- Left: Search Box -->
+            <div class="sutra-toolbar-left">
+              <div class="sutra-catalogue-search">
+                <svg class="sutra-catalogue-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.3-4.3"/>
+                </svg>
+                <input type="text" id="agent-search-input" placeholder="Search agents by name or task..." aria-label="Search agents">
+              </div>
+            </div>
+
+            <!-- Right: Filter Pill Tabs & View Mode Switcher -->
+            <div class="sutra-toolbar-right">
+              
+              <!-- Category Filter Pills Bar (Sutra Design System Pill Tab Spec) -->
+              <div class="sutra-tab-pill-bar" role="tablist" aria-label="Filter agents by category">
+                <button class="sutra-tab-pill active" data-category="All" role="tab" aria-selected="true">All</button>
+                <button class="sutra-tab-pill" data-category="Development" role="tab" aria-selected="false">Development</button>
+                <button class="sutra-tab-pill" data-category="Writing" role="tab" aria-selected="false">Writing</button>
+                <button class="sutra-tab-pill" data-category="Data" role="tab" aria-selected="false">Data</button>
+                <button class="sutra-tab-pill" data-category="Productivity" role="tab" aria-selected="false">Productivity</button>
+                <button class="sutra-tab-pill" data-category="Design" role="tab" aria-selected="false">Design</button>
+              </div>
+
+              <!-- View Switcher (Grid vs Table) -->
+              <div class="sutra-view-switcher" role="group" aria-label="Toggle view mode">
+                <button class="sutra-view-btn active" id="view-grid-btn" aria-label="Card Grid View" title="Card Grid View">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="7" height="7" x="3" y="3" rx="1"/>
+                    <rect width="7" height="7" x="14" y="3" rx="1"/>
+                    <rect width="7" height="7" x="14" y="14" rx="1"/>
+                    <rect width="7" height="7" x="3" y="14" rx="1"/>
+                  </svg>
+                </button>
+                <button class="sutra-view-btn" id="view-table-btn" aria-label="Table View" title="Table View">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" x2="21" y1="6" y2="6"/>
+                    <line x1="3" x2="21" y1="12" y2="12"/>
+                    <line x1="3" x2="21" y1="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ================================================================
+               VIEW 1: AGENTS CARDS GRID
+               ================================================================ -->
+          <div class="sutra-agents-grid" id="agents-grid">
+            
+            <!-- Agent 1: Synthetix -->
+            <div class="sutra-agent-card" data-category="Development" data-name="Synthetix" data-version="v2.4.0" data-desc="Advanced code generation and refactoring specialist. Proficient in React, Node, and Python." data-author="Igris Team" data-rating="4.9" data-users="12.4k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box dev">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">Synthetix</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.9</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v2.4.1</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Advanced code generation and refactoring specialist. Proficient in React, Node, and Python.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  12.4k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 2: Lexi -->
+            <div class="sutra-agent-card" data-category="Writing" data-name="Lexi" data-version="v1.8.2" data-desc="Expert copywriter and editor. Perfect for blogs, marketing copy, and documentation." data-author="Igris Team" data-rating="4.8" data-users="8.2k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box writing">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">Lexi</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.8</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v1.8.2</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Expert copywriter and editor. Perfect for blogs, marketing copy, and documentation.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  8.2k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 3: DataWeaver -->
+            <div class="sutra-agent-card" data-category="Data" data-name="DataWeaver" data-version="v2.1.0" data-desc="Data analysis and visualization expert. Can process CSVs and generate Python plot code." data-author="Community" data-rating="4.7" data-users="5.1k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box data">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" x2="18" y1="20" y2="10"/>
+                    <line x1="12" x2="12" y1="20" y2="4"/>
+                    <line x1="6" x2="6" y1="20" y2="14"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">DataWeaver</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.7</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v2.1.0</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Data analysis and visualization expert. Can process CSVs and generate Python plot code.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  5.1k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 4: SecureOps -->
+            <div class="sutra-agent-card" data-category="Productivity" data-name="SecureOps" data-version="v1.5.0" data-desc="Security auditing assistant. Scans configurations and code for potential vulnerabilities." data-author="Igris Team" data-rating="4.9" data-users="2.3k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box security">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">SecureOps</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.9</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v1.5.0</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Security auditing assistant. Scans configurations and code for potential vulnerabilities.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  2.3k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 5: Business Analysis -->
+            <div class="sutra-agent-card" data-category="Productivity" data-name="Business Analysis" data-version="v2.0.1" data-desc="Creates epics, features, user stories, and test cases in Jira via conversational prompts with HITL approval." data-author="Igris Team" data-rating="4.9" data-users="14.2k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box ba">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">Business Analysis</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.9</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v2.0.1</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Creates epics, features, user stories, and test cases in Jira via conversational prompts with HITL approval.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  14.2k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 6: Anomaly Detection -->
+            <div class="sutra-agent-card" data-category="Data" data-name="Anomaly Detection" data-version="v1.9.0" data-desc="Detects spikes and outliers in datasets using Isolation Forest, IQR, and statistical baselines across DB/File/API." data-author="Igris Team" data-rating="4.8" data-users="11.8k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box security">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" x2="12" y1="8" y2="12"/>
+                    <line x1="12" x2="12.01" y1="16" y2="16"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">Anomaly Detection</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.8</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v1.9.0</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Detects spikes and outliers in datasets using Isolation Forest, IQR, and statistical baselines across DB/File/API.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  11.8k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 7: Data Forecasting -->
+            <div class="sutra-agent-card" data-category="Data" data-name="Data Forecasting" data-version="v1.4.2" data-desc="Forecasts future trends using EWMA, SARIMA, and signal regimes. Evaluates drift, seasonality, and autocorrelation." data-author="Igris Team" data-rating="4.7" data-users="9.4k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box data">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                    <polyline points="17 6 23 6 23 12"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">Data Forecasting</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.7</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v1.4.2</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Forecasts future trends using EWMA, SARIMA, and signal regimes. Evaluates drift, seasonality, and autocorrelation.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  9.4k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 8: Data Profiler -->
+            <div class="sutra-agent-card" data-category="Data" data-name="Data Profiler" data-version="v2.2.0" data-desc="Comprehensive schema discovery, ER diagram generation, metadata profiling, and data quality rule validation." data-author="Igris Team" data-rating="4.9" data-users="8.6k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box design">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                    <line x1="3" x2="21" y1="9" y2="9"/>
+                    <line x1="9" x2="9" y1="21" y2="9"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">Data Profiler</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.9</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v2.2.0</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Comprehensive schema discovery, ER diagram generation, metadata profiling, and data quality rule validation.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  8.6k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 9: ReactSculptor -->
+            <div class="sutra-agent-card" data-category="Design" data-name="ReactSculptor" data-version="v1.3.1" data-desc="Converts UI wireframes or descriptions into production-ready Tailwind React components." data-author="Community" data-rating="4.6" data-users="9.8k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box dev">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m18 16 4-4-4-4"/>
+                    <path d="m6 8-4 4 4 4"/>
+                    <path d="m14.5 4-5 16"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">ReactSculptor</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.6</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v1.3.1</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Converts UI wireframes or descriptions into production-ready Tailwind React components.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  9.8k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+            <!-- Agent 10: General Assistant -->
+            <div class="sutra-agent-card" data-category="Productivity" data-name="General Assistant" data-version="v3.0.0" data-desc="Your versatile everyday AI. Good at answering general questions and brainstorming." data-author="Igris Team" data-rating="4.9" data-users="45.1k">
+              <div class="sutra-agent-card-header">
+                <div class="sutra-agent-icon-box general">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 8V4H8"/>
+                    <rect width="16" height="12" x="4" y="8" rx="2"/>
+                    <path d="M2 14h2"/>
+                    <path d="M20 14h2"/>
+                    <path d="M15 13v2"/>
+                    <path d="M9 13v2"/>
+                  </svg>
+                </div>
+                <div class="sutra-agent-header-info">
+                  <div class="sutra-agent-title-row">
+                    <h3 class="sutra-agent-name">General Assistant</h3>
+                    <div class="sutra-agent-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                      <span>4.9</span>
+                    </div>
+                  </div>
+                  <span class="sutra-agent-author sutra-agent-version">v3.0.0</span>
+                </div>
+              </div>
+              <p class="sutra-agent-desc">Your versatile everyday AI. Good at answering general questions and brainstorming.</p>
+              <div class="sutra-agent-card-footer">
+                <span class="sutra-agent-users">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  45.1k users
+                </span>
+                <button class="sutra-btn sutra-btn-ghost">Use Agent</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ================================================================
+               VIEW 2: AGENTS DATA TABLE VIEW (Toggleable)
+               ================================================================ -->
+          <div class="sutra-agents-table-view" id="agents-table-view">
+            <table class="sutra-table">
+              <thead>
+                <tr>
+                  <th class="sutra-th-expand" aria-label="Expand"></th>
+                  <th class="sutra-th-agent">AGENT NAME</th>
+                  <th class="sutra-th-category">CATEGORY</th>
+                  <th class="sutra-th-version">VERSION</th>
+                  <th class="sutra-th-rating">RATING</th>
+                  <th class="sutra-th-users">USERS</th>
+                  <th class="sutra-th-action">ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="agents-table-body">
+                <!-- Populated dynamically via main.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty State -->
+          <div class="sutra-agent-empty-state" id="agents-empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 8V4H8"/>
+              <rect width="16" height="12" x="4" y="8" rx="2"/>
+              <path d="M2 14h2"/>
+              <path d="M20 14h2"/>
+              <path d="M15 13v2"/>
+              <path d="M9 13v2"/>
+            </svg>
+            <h3 class="sutra-agent-empty-title">No agents found</h3>
+            <p class="sutra-agent-empty-desc">Try adjusting your search query or category filter.</p>
+          </div>
+
+          <!-- ================================================================
+               PAGINATION COMPONENT
+               ================================================================ -->
+          <footer class="sutra-pagination" role="navigation" aria-label="Pagination">
+            <div class="sutra-pagination-info" id="pagination-info">
+              Showing <strong>1–8</strong> of <strong>10</strong> agents
+            </div>
+            <div class="sutra-pagination-controls">
+              <button class="sutra-page-btn" id="pagination-prev-btn" aria-label="Previous Page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+              <div id="pagination-pages" class="sutra-pagination-pages">
+                <!-- Page numbers rendered dynamically -->
+              </div>
+              <button class="sutra-page-btn" id="pagination-next-btn" aria-label="Next Page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+          </footer>
+
+        </main>
+
+        <!-- ==================================================================
+             ZONE 3: AGENT WORKSPACE VIEW (shadcn sidebar-08 specification)
+             Activates when an agent is selected from the catalogue
+             ================================================================== -->
+        <section class="sutra-workspace-view" id="sutra-workspace-view" aria-label="Agent Workspace">
+          <div class="sutra-workspace-shell">
+
+            <!-- 1. Collapsible Sidebar (sidebar-08) -->
+            <aside class="s08-sidebar collapsed" id="s08-sidebar" aria-label="Agent Navigation">
+              
+              <div class="s08-sidebar-top">
+                <!-- Agent Switcher Header (Agent Context per Annotations 3 & 5) -->
+                <div class="s08-dropdown-wrap">
+                  <button class="s08-team-header s08-agent-header-btn" id="s08-agent-switcher-btn" title="Switch Agent" type="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="s08-team-logo s08-agent-logo-badge" id="s08-agent-logo-badge">AG</div>
+                    <div class="s08-team-info">
+                      <span class="s08-team-name" id="s08-agent-title">Agent General</span>
+                      <span class="s08-team-role" id="s08-agent-subtitle">Autonomous Specialist</span>
+                    </div>
+                    <svg class="s08-team-chevrons" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m7 15 5 5 5-5"/>
+                      <path d="m7 9 5-5 5 5"/>
+                    </svg>
+                  </button>
+
+                  <!-- Agent Switcher Dropdown in Sidebar (Last 6 used agents + View Catalogues per Annotation 5) -->
+                  <div class="s08-sidebar-agent-menu" id="s08-sidebar-agent-menu" role="menu">
+                    <div class="s08-menu-group-label">Recent Agents</div>
+                    <button class="s08-agent-menu-item" data-agent="Synthetix" data-role="Development" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">Synthetix</span>
+                        <span class="s08-agent-item-role">Development</span>
+                      </div>
+                    </button>
+                    <button class="s08-agent-menu-item active" data-agent="Agent General" data-role="Autonomous Specialist" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">Agent General</span>
+                        <span class="s08-agent-item-role">Autonomous Specialist</span>
+                      </div>
+                      <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </button>
+                    <button class="s08-agent-menu-item" data-agent="Design Engineer" data-role="UI/UX & Design Tokens" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">Design Engineer</span>
+                        <span class="s08-agent-item-role">UI/UX & Design Tokens</span>
+                      </div>
+                    </button>
+                    <button class="s08-agent-menu-item" data-agent="Sales Copilot" data-role="Enterprise CRM Specialist" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">Sales Copilot</span>
+                        <span class="s08-agent-item-role">Enterprise CRM Specialist</span>
+                      </div>
+                    </button>
+                    <button class="s08-agent-menu-item" data-agent="Financial Analyst" data-role="FinOps & Forecasting" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">Financial Analyst</span>
+                        <span class="s08-agent-item-role">FinOps & Forecasting</span>
+                      </div>
+                    </button>
+                    <button class="s08-agent-menu-item" data-agent="DevOps Specialist" data-role="CI/CD & Cloud Infrastructure" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">DevOps Specialist</span>
+                        <span class="s08-agent-item-role">CI/CD & Cloud Infrastructure</span>
+                      </div>
+                    </button>
+                    <button class="s08-agent-menu-item" data-agent="Research Assistant" data-role="Data Gathering & Synthesis" type="button" role="menuitem">
+                      <div class="s08-agent-item-info">
+                        <span class="s08-agent-item-name">Research Assistant</span>
+                        <span class="s08-agent-item-role">Data Gathering & Synthesis</span>
+                      </div>
+                    </button>
+
+                    <div class="s08-agent-menu-divider" role="separator"></div>
+
+                    <!-- View Catalogues button linking to Agent Catalogues page (Annotation 5) -->
+                    <button class="s08-agent-menu-item view-catalogues-btn" id="s08-view-catalogues-btn" type="button" role="menuitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="7" height="7" x="3" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="3" rx="1"/>
+                        <rect width="7" height="7" x="14" y="14" rx="1"/>
+                        <rect width="7" height="7" x="3" y="14" rx="1"/>
+                      </svg>
+                      <span>View Catalogues</span>
+                      <svg class="arrow-right-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Workspace Switcher Header (Logo removed per Annotation 4; Work Area support per Annotation 2 & 6) -->
+                <div class="s08-dropdown-wrap">
+                  <button class="s08-team-header s08-workspace-header-btn is-empty" id="s08-workspace-switcher-btn" title="Switch Workspace / Work Area" type="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="s08-team-info">
+                      <span class="s08-team-name" id="s08-workspace-title">Select Workspace</span>
+                      <span class="s08-team-role" id="s08-workspace-subtitle">Work Area</span>
+                    </div>
+                    <svg class="s08-team-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+
+                  <!-- Workspace & Work Area Cascading Switcher Dropdown in Sidebar (Annotation 1) -->
+                  <div class="s08-sidebar-workspace-menu" id="s08-sidebar-workspace-menu" role="menu">
+                    <div class="s08-menu-group-label">Select Workspace</div>
+
+                    <!-- Workspace 1: agent-research -->
+                    <div class="s08-sidebar-ws-sub-wrap" data-ws="agent-research" data-plan="Local">
+                      <button class="s08-sidebar-ws-item s08-ws-sub-trigger" type="button" role="menuitem">
+                        <span class="s08-ws-item-name">agent-research</span>
+                        <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                      </button>
+                      <!-- Level 2 Submenu: Work Areas for agent-research -->
+                      <div class="s08-sidebar-wa-submenu" role="menu">
+                        <div class="s08-menu-group-label">Folders / Work Areas</div>
+                        <button class="s08-sidebar-wa-item" data-ws="agent-research" data-plan="Local" data-wa="Development Sandbox" type="button" role="menuitem">
+                          <span>Development Sandbox</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="agent-research" data-plan="Local" data-wa="Staging Preview" type="button" role="menuitem">
+                          <span>Staging Preview</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="agent-research" data-plan="Local" data-wa="Production" type="button" role="menuitem">
+                          <span>Production</span>
+                        </button>
+                        <div class="s08-agent-menu-divider" role="separator"></div>
+                        <button class="s08-sidebar-wa-item create-action" data-ws="agent-research" data-wa="__create_new__" type="button" role="menuitem">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                          <span>Connect Work Area...</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Workspace 2: web-platform -->
+                    <div class="s08-sidebar-ws-sub-wrap" data-ws="web-platform" data-plan="GitHub">
+                      <button class="s08-sidebar-ws-item s08-ws-sub-trigger" type="button" role="menuitem">
+                        <span class="s08-ws-item-name">web-platform</span>
+                        <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                      </button>
+                      <!-- Level 2 Submenu: Work Areas for web-platform -->
+                      <div class="s08-sidebar-wa-submenu" role="menu">
+                        <div class="s08-menu-group-label">Folders / Work Areas</div>
+                        <button class="s08-sidebar-wa-item" data-ws="web-platform" data-plan="GitHub" data-wa="Development Sandbox" type="button" role="menuitem">
+                          <span>Development Sandbox</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="web-platform" data-plan="GitHub" data-wa="Staging Preview" type="button" role="menuitem">
+                          <span>Staging Preview</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="web-platform" data-plan="GitHub" data-wa="Production" type="button" role="menuitem">
+                          <span>Production</span>
+                        </button>
+                        <div class="s08-agent-menu-divider" role="separator"></div>
+                        <button class="s08-sidebar-wa-item create-action" data-ws="web-platform" data-wa="__create_new__" type="button" role="menuitem">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                          <span>Connect Work Area...</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Workspace 3: core-api -->
+                    <div class="s08-sidebar-ws-sub-wrap" data-ws="core-api" data-plan="GitLab">
+                      <button class="s08-sidebar-ws-item s08-ws-sub-trigger" type="button" role="menuitem">
+                        <span class="s08-ws-item-name">core-api</span>
+                        <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                      </button>
+                      <!-- Level 2 Submenu: Work Areas for core-api -->
+                      <div class="s08-sidebar-wa-submenu" role="menu">
+                        <div class="s08-menu-group-label">Folders / Work Areas</div>
+                        <button class="s08-sidebar-wa-item" data-ws="core-api" data-plan="GitLab" data-wa="Development Sandbox" type="button" role="menuitem">
+                          <span>Development Sandbox</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="core-api" data-plan="GitLab" data-wa="Staging Preview" type="button" role="menuitem">
+                          <span>Staging Preview</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="core-api" data-plan="GitLab" data-wa="Production" type="button" role="menuitem">
+                          <span>Production</span>
+                        </button>
+                        <div class="s08-agent-menu-divider" role="separator"></div>
+                        <button class="s08-sidebar-wa-item create-action" data-ws="core-api" data-wa="__create_new__" type="button" role="menuitem">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                          <span>Connect Work Area...</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Workspace 4: Acme Inc -->
+                    <div class="s08-sidebar-ws-sub-wrap" data-ws="Acme Inc" data-plan="Enterprise">
+                      <button class="s08-sidebar-ws-item s08-ws-sub-trigger" type="button" role="menuitem">
+                        <span class="s08-ws-item-name">Acme Inc</span>
+                        <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                      </button>
+                      <!-- Level 2 Submenu: Work Areas for Acme Inc -->
+                      <div class="s08-sidebar-wa-submenu" role="menu">
+                        <div class="s08-menu-group-label">Work Areas</div>
+                        <button class="s08-sidebar-wa-item" data-ws="Acme Inc" data-plan="Enterprise" data-wa="Design Engineering" type="button" role="menuitem">
+                          <span>Design Engineering</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="Acme Inc" data-plan="Enterprise" data-wa="Sales & Marketing" type="button" role="menuitem">
+                          <span>Sales & Marketing</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="Acme Inc" data-plan="Enterprise" data-wa="Travel" type="button" role="menuitem">
+                          <span>Travel</span>
+                        </button>
+                        <div class="s08-agent-menu-divider" role="separator"></div>
+                        <button class="s08-sidebar-wa-item create-action" data-ws="Acme Inc" data-wa="__create_new__" type="button" role="menuitem">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                          <span>Connect Work Area...</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Workspace 5: Global Logistics -->
+                    <div class="s08-sidebar-ws-sub-wrap" data-ws="Global Logistics" data-plan="Production">
+                      <button class="s08-sidebar-ws-item s08-ws-sub-trigger" type="button" role="menuitem">
+                        <span class="s08-ws-item-name">Global Logistics</span>
+                        <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                      </button>
+                      <!-- Level 2 Submenu: Work Areas for Global Logistics -->
+                      <div class="s08-sidebar-wa-submenu" role="menu">
+                        <div class="s08-menu-group-label">Work Areas</div>
+                        <button class="s08-sidebar-wa-item" data-ws="Global Logistics" data-plan="Production" data-wa="Supply Chain" type="button" role="menuitem">
+                          <span>Supply Chain</span>
+                        </button>
+                        <button class="s08-sidebar-wa-item" data-ws="Global Logistics" data-plan="Production" data-wa="Fleet Analytics" type="button" role="menuitem">
+                          <span>Fleet Analytics</span>
+                        </button>
+                        <div class="s08-agent-menu-divider" role="separator"></div>
+                        <button class="s08-sidebar-wa-item create-action" data-ws="Global Logistics" data-wa="__create_new__" type="button" role="menuitem">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                          <span>Connect Work Area...</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- New Task Action Button (Inset and consistent) -->
+                <div class="s08-new-chat-wrap">
+                  <button class="s08-new-chat-btn" id="s08-new-chat-btn" type="button" aria-label="New task" title="Start a new task (⌘N)">
+                    <div class="s08-new-chat-inner">
+                      <svg class="s08-new-chat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/>
+                        <path d="M12 8v6"/>
+                        <path d="M9 11h6"/>
+                      </svg>
+                      <span class="s08-new-chat-label">New task</span>
+                    </div>
+                    <kbd class="s08-new-chat-kbd">⌘N</kbd>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Scroll Applied at Section Level: Scrollable Nav Groups Container -->
+              <div class="s08-sidebar-scroll" id="s08-sidebar-scroll">
+
+                <!-- ==========================================================
+                     SECTION 1: PROJECTS (Above Recent Conversations)
+                     Users can group multiple conversations into a single group.
+                     Create new projects, rename, and nest conversations.
+                     ========================================================== -->
+                <div class="s08-nav-group collapsed" id="s08-projects-group">
+                  
+                  <!-- Projects Section Header -->
+                  <div class="s08-section-header" id="s08-projects-header" title="Toggle Projects section">
+                    <div class="s08-section-header-inner">
+                      <svg class="s08-section-header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
+                      </svg>
+                      <span class="s08-group-label">Projects</span>
+                    </div>
+                    
+                    <div class="s08-header-actions">
+                      <!-- Create New Project Button -->
+                      <button class="s08-header-action-btn" id="s08-add-project-btn" type="button" aria-label="Create new project" title="Create new project">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="12" x2="12" y1="5" y2="19"/>
+                          <line x1="5" x2="19" y1="12" y2="12"/>
+                        </svg>
+                      </button>
+
+                      <!-- Collapse Chevron -->
+                      <button class="s08-header-action-btn s08-collapse-btn" id="s08-collapse-projects-btn" type="button" aria-label="Collapse section" title="Collapse section">
+                        <svg class="s08-collapse-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Projects Collapsible Body -->
+                  <div class="s08-collapsible-body" id="s08-projects-collapsible-body">
+                    <div class="s08-collapsible-inner">
+                    
+                    <!-- Inline New Project Creator Box (Hidden by default, shown on '+' click) -->
+                    <div class="s08-new-project-wrap" id="s08-new-project-wrap" style="display:none;">
+                      <input type="text" id="s08-new-project-input" placeholder="New project name..." aria-label="Project name">
+                      <div class="s08-new-project-btns">
+                        <button type="button" id="s08-save-project-btn" class="s08-project-btn-icon save" title="Save Project" aria-label="Save">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                        <button type="button" id="s08-cancel-project-btn" class="s08-project-btn-icon cancel" title="Cancel" aria-label="Cancel">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Projects List -->
+                    <div class="s08-projects-list" id="s08-projects-list">
+                      
+                      <!-- Project 1: Design Engineering (Expanded by default) -->
+                      <div class="s08-project-group open" data-project-id="1" data-project-name="Design Engineering">
+                        <div class="s08-project-item">
+                          <button class="s08-project-chevron-btn" type="button" aria-label="Toggle nested tasks">
+                            <svg class="s08-project-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                          </button>
+                          <span class="s08-project-name">Design Engineering</span>
+                          <span class="s08-project-count">2</span>
+                          <div class="s08-project-actions">
+                            <button class="s08-project-action-btn s08-project-kebab-btn" type="button" aria-label="Folder options" title="Folder options" aria-haspopup="true">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="5" cy="12" r="1.5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
+                                <circle cx="19" cy="12" r="1.5"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- Nested Tasks in Project 1 -->
+                        <div class="s08-project-chats">
+                          <div class="s08-project-chats-inner">
+                          <div class="s08-chat-item" data-id="p1-1" data-title="Design System Tokens Sync">
+                            <span class="s08-chat-title">Design System Tokens Sync</span>
+                            <span class="s08-chat-time">Today</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="s08-chat-item" data-id="p1-2" data-title="Component Library RFC">
+                            <span class="s08-chat-title">Component Library RFC</span>
+                            <span class="s08-chat-time">Oct 16</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project 2: Sales & Marketing -->
+                      <div class="s08-project-group" data-project-id="2" data-project-name="Sales & Marketing">
+                        <div class="s08-project-item">
+                          <button class="s08-project-chevron-btn" type="button" aria-label="Toggle nested tasks">
+                            <svg class="s08-project-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                          </button>
+                          <span class="s08-project-name">Sales & Marketing</span>
+                          <span class="s08-project-count">2</span>
+                          <div class="s08-project-actions">
+                            <button class="s08-project-action-btn s08-project-kebab-btn" type="button" aria-label="Folder options" title="Folder options" aria-haspopup="true">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="5" cy="12" r="1.5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
+                                <circle cx="19" cy="12" r="1.5"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- Nested Tasks in Project 2 -->
+                        <div class="s08-project-chats">
+                          <div class="s08-project-chats-inner">
+                          <div class="s08-chat-item" data-id="p2-1" data-title="Q4 Campaign Copy">
+                            <span class="s08-chat-title">Q4 Campaign Copy</span>
+                            <span class="s08-chat-time">Oct 15</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="s08-chat-item" data-id="p2-2" data-title="Landing Page Audit">
+                            <span class="s08-chat-title">Landing Page Audit</span>
+                            <span class="s08-chat-time">Oct 14</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project 3: Travel -->
+                      <div class="s08-project-group" data-project-id="3" data-project-name="Travel">
+                        <div class="s08-project-item">
+                          <button class="s08-project-chevron-btn" type="button" aria-label="Toggle nested tasks">
+                            <svg class="s08-project-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                          </button>
+                          <span class="s08-project-name">Travel</span>
+                          <span class="s08-project-count">1</span>
+                          <div class="s08-project-actions">
+                            <button class="s08-project-action-btn s08-project-kebab-btn" type="button" aria-label="Folder options" title="Folder options" aria-haspopup="true">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="5" cy="12" r="1.5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
+                                <circle cx="19" cy="12" r="1.5"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- Nested Tasks in Project 3 -->
+                        <div class="s08-project-chats">
+                          <div class="s08-project-chats-inner">
+                          <div class="s08-chat-item" data-id="p3-1" data-title="Flight Booking API">
+                            <span class="s08-chat-title">Flight Booking API</span>
+                            <span class="s08-chat-time">Oct 11</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Separator between Projects and Recent Tasks -->
+                <div class="s08-sidebar-separator" aria-hidden="true"></div>
+
+                <!-- ==========================================================
+                     SECTION 2: RECENT TASKS (Below Projects)
+                     Sub-grouped by date: Today, Yesterday, Previous 7 Days
+                     Timestamp visible by default; swaps with actions on hover.
+                     View all toggle shows older tasks.
+                     ========================================================== -->
+                <div class="s08-nav-group" id="s08-recent-chats-group">
+                  
+                  <!-- Section Header with Right-Aligned Hover Actions -->
+                  <div class="s08-section-header" id="s08-chats-header" title="Toggle Recent Tasks">
+                    <div class="s08-section-header-inner">
+                      <svg class="s08-section-header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      <span class="s08-group-label">Recent Tasks</span>
+                    </div>
+                    
+                    <div class="s08-header-actions">
+                      <!-- Create New Task Button -->
+                      <button class="s08-header-action-btn" id="s08-add-chat-header-btn" type="button" aria-label="New task" title="New task">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/>
+                          <path d="M12 8v6"/>
+                          <path d="M9 11h6"/>
+                        </svg>
+                      </button>
+
+                      <!-- Search Icon on Hover -->
+                      <button class="s08-header-action-btn" id="s08-search-chats-btn" type="button" aria-label="Search tasks" title="Search tasks">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="11" cy="11" r="8"/>
+                          <path d="m21 21-4.3-4.3"/>
+                        </svg>
+                      </button>
+
+                      <!-- Sort Icon on Hover -->
+                      <button class="s08-header-action-btn" id="s08-sort-chats-btn" type="button" aria-label="Sort tasks" title="Sort tasks">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m3 16 4 4 4-4"/>
+                          <path d="M7 20V4"/>
+                          <path d="m21 8-4-4-4 4"/>
+                          <path d="M17 4v16"/>
+                        </svg>
+                      </button>
+
+                      <!-- Collapse Chevron -->
+                      <button class="s08-header-action-btn s08-collapse-btn" id="s08-collapse-chats-btn" type="button" aria-label="Collapse section" title="Collapse section">
+                        <svg class="s08-collapse-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Collapsible Body -->
+                  <div class="s08-collapsible-body" id="s08-chats-collapsible-body">
+                    <div class="s08-collapsible-inner">
+                    
+                    <!-- Search Input Box (Toggled on Search Click) -->
+                    <div class="s08-chat-search-wrap" id="s08-chat-search-wrap">
+                      <div class="s08-chat-search-inner">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <circle cx="11" cy="11" r="8"/>
+                          <path d="m21 21-4.3-4.3"/>
+                        </svg>
+                        <input type="text" id="s08-chat-search-input" placeholder="Filter tasks..." aria-label="Filter tasks">
+                      </div>
+                    </div>
+
+                    <!-- List of Recent Conversations with Date Sub-Groupings (Clean Linear Alignment) -->
+                    <div class="s08-chats-list" id="s08-chats-list">
+                      
+                      <!-- DATE SUB-GROUP: TODAY -->
+                      <div class="s08-date-group" id="s08-group-today">
+                        <div class="s08-date-header">Today</div>
+                        <div class="s08-date-chats" id="s08-date-chats-today">
+                          <!-- Chat 1 (Active, Pinned) -->
+                          <div class="s08-chat-item active pinned" data-id="1" data-title="API Authentication Flow" data-pinned="true">
+                            <span class="s08-chat-title">API Authentication Flow</span>
+                            <span class="s08-chat-time">10:42 AM</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn is-pinned" type="button" aria-label="Unpin task" title="Unpin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="12" x2="12" y1="17" y2="22"/>
+                                  <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+                                </svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                  <circle cx="5" cy="12" r="1.5"/>
+                                  <circle cx="12" cy="12" r="1.5"/>
+                                  <circle cx="19" cy="12" r="1.5"/>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+
+                          <!-- Chat 2 (Pinned) -->
+                          <div class="s08-chat-item pinned" data-id="2" data-title="React Performance Audit" data-pinned="true">
+                            <span class="s08-chat-title">React Performance Audit</span>
+                            <span class="s08-chat-time">9:15 AM</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn is-pinned" type="button" aria-label="Unpin task" title="Unpin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="12" x2="12" y1="17" y2="22"/>
+                                  <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+                                </svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                  <circle cx="5" cy="12" r="1.5"/>
+                                  <circle cx="12" cy="12" r="1.5"/>
+                                  <circle cx="19" cy="12" r="1.5"/>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+
+                          <!-- Chat 3 -->
+                          <div class="s08-chat-item" data-id="3" data-title="GraphQL Schema Migration" data-pinned="false">
+                            <span class="s08-chat-title">GraphQL Schema Migration</span>
+                            <span class="s08-chat-time">8:30 AM</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="12" x2="12" y1="17" y2="22"/>
+                                  <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+                                </svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                  <circle cx="5" cy="12" r="1.5"/>
+                                  <circle cx="12" cy="12" r="1.5"/>
+                                  <circle cx="19" cy="12" r="1.5"/>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- DATE SUB-GROUP: YESTERDAY -->
+                      <div class="s08-date-group" id="s08-group-yesterday">
+                        <div class="s08-date-header">Yesterday</div>
+                        <div class="s08-date-chats" id="s08-date-chats-yesterday">
+                          <!-- Chat 4 -->
+                          <div class="s08-chat-item" data-id="4" data-title="Customer Journey Analysis" data-pinned="false">
+                            <span class="s08-chat-title">Customer Journey Analysis</span>
+                            <span class="s08-chat-time">Yesterday</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="12" x2="12" y1="17" y2="22"/>
+                                  <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+                                </svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                  <circle cx="5" cy="12" r="1.5"/>
+                                  <circle cx="12" cy="12" r="1.5"/>
+                                  <circle cx="19" cy="12" r="1.5"/>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+
+                          <!-- Chat 5 -->
+                          <div class="s08-chat-item" data-id="5" data-title="Data Pipeline Architecture" data-pinned="false">
+                            <span class="s08-chat-title">Data Pipeline Architecture</span>
+                            <span class="s08-chat-time">Yesterday</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="12" x2="12" y1="17" y2="22"/>
+                                  <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+                                </svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                  <circle cx="5" cy="12" r="1.5"/>
+                                  <circle cx="12" cy="12" r="1.5"/>
+                                  <circle cx="19" cy="12" r="1.5"/>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- DATE SUB-GROUP: PREVIOUS 7 DAYS -->
+                      <div class="s08-date-group" id="s08-group-prev7">
+                        <div class="s08-date-header">Previous 7 Days</div>
+                        <div class="s08-date-chats" id="s08-date-chats-prev7">
+                          <!-- Chat 6 -->
+                          <div class="s08-chat-item" data-id="6" data-title="Prompt Injection Defense" data-pinned="false">
+                            <span class="s08-chat-title">Prompt Injection Defense</span>
+                            <span class="s08-chat-time">Oct 17</span>
+                            <div class="s08-chat-actions">
+                              <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                              </button>
+                              <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- OVERFLOW TASKS (Hidden by default, shown via 'View all') -->
+                      <div class="s08-chats-overflow" id="s08-chats-overflow" style="display:none;">
+                        <div class="s08-date-group" id="s08-group-overflow">
+                          <div class="s08-date-chats" id="s08-date-chats-overflow">
+                            <!-- Chat 7 -->
+                            <div class="s08-chat-item" data-id="7" data-title="Enterprise SSO Integration" data-pinned="false">
+                              <span class="s08-chat-title">Enterprise SSO Integration</span>
+                              <span class="s08-chat-time">Oct 15</span>
+                              <div class="s08-chat-actions">
+                                <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                                </button>
+                                <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Chat 8 -->
+                            <div class="s08-chat-item" data-id="8" data-title="Postgres Connection Pool" data-pinned="false">
+                              <span class="s08-chat-title">Postgres Connection Pool</span>
+                              <span class="s08-chat-time">Oct 14</span>
+                              <div class="s08-chat-actions">
+                                <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                                </button>
+                                <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Chat 9 -->
+                            <div class="s08-chat-item" data-id="9" data-title="Multi-Agent Orchestrator" data-pinned="false">
+                              <span class="s08-chat-title">Multi-Agent Orchestrator</span>
+                              <span class="s08-chat-time">Oct 11</span>
+                              <div class="s08-chat-actions">
+                                <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                                </button>
+                                <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Chat 10 -->
+                            <div class="s08-chat-item" data-id="10" data-title="Landing Page A/B Test" data-pinned="false">
+                              <span class="s08-chat-title">Landing Page A/B Test</span>
+                              <span class="s08-chat-time">Oct 08</span>
+                              <div class="s08-chat-actions">
+                                <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                                </button>
+                                <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Chat 11 -->
+                            <div class="s08-chat-item" data-id="11" data-title="Stripe Webhook Handler" data-pinned="false">
+                              <span class="s08-chat-title">Stripe Webhook Handler</span>
+                              <span class="s08-chat-time">Oct 05</span>
+                              <div class="s08-chat-actions">
+                                <button class="s08-chat-action-btn s08-pin-btn" type="button" aria-label="Pin task" title="Pin task">
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="17" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/></svg>
+                                </button>
+                                <button class="s08-chat-action-btn s08-kebab-btn" type="button" aria-label="More options" title="More options" aria-haspopup="true">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/>
+                                  <circle cx="12" cy="12" r="1.5"/>
+                                  <circle cx="19" cy="12" r="1.5"/>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                      <!-- View All / Show Less Button -->
+                      <button class="s08-view-more-btn" id="s08-view-more-chats-btn" type="button">
+                        <span id="s08-view-more-text">View all (11)</span>
+                        <svg class="s08-view-more-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                      </button>
+
+                    </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </aside>
+
+            <!-- Draggable Sidebar Split Resizer (Annotation 6) -->
+            <div class="sutra-resizer s08-sidebar-resizer" id="s08-sidebar-resizer" role="separator" aria-orientation="vertical" title="Drag to resize sidebar (drag left to collapse)">
+              <div class="sutra-resizer-line"></div>
+            </div>
+
+            <!-- 2. Main Content Inset (shadcn sidebar-inset with Two-Column Canvas) -->
+            <div class="s08-inset" id="s08-inset">
+              <div class="s08-inset-body tabs-multi-open tabs-three-pane has-wide-tab" id="s08-inset-body">
+
+                <!-- ============================================================
+                     COLUMN 1: CONVERSATIONAL SECTION (matching Image 1)
+                     ============================================================ -->
+                <div class="s08-conversation-col" id="s08-conversation-col">
+                  
+                  <!-- Top Column Header -->
+                  <div class="s08-chat-col-header">
+                    <div class="s08-chat-header-left">
+                      <!-- Sidebar Toggle Button [|] -->
+                      <button class="s08-trigger-btn" id="s08-sidebar-trigger" aria-label="Toggle Sidebar" title="Expand Sidebar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="18" height="18" x="3" y="3" rx="2"/>
+                          <path d="M9 3v18"/>
+                        </svg>
+                      </button>
+
+                      <!-- Separator between sidebar icon and chat label (Annotation 1) -->
+                      <div class="s08-separator-v" aria-hidden="true"></div>
+
+                      <!-- Breadcrumbs / Task Name (matching Image 1: "New task") -->
+                      <nav class="s08-breadcrumbs" aria-label="Breadcrumbs">
+                        <button class="s08-breadcrumb-link" id="s08-crumb-back" title="Project Folder" style="display: none;">Build Your Application</button>
+                        <span class="s08-breadcrumb-sep" id="s08-crumb-sep" style="display: none;">/</span>
+                        <span class="s08-breadcrumb-active" id="s08-crumb-current">New task</span>
+                      </nav>
+                    </div>
+
+                    <div class="s08-chat-header-right">
+                      <!-- New Task / Conversation Action (Visible ONLY when secondary nav is completely collapsed) (Annotation 3) -->
+                      <button class="s08-trigger-btn s08-chat-new-task-btn" id="s08-chat-new-task-btn" type="button" aria-label="New task" title="New task (⌘N)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/>
+                          <path d="M12 8v6"/>
+                          <path d="M9 11h6"/>
+                        </svg>
+                      </button>
+
+                      <!-- Open Tabs Panel Toggle (Visible when right column is collapsed) -->
+                      <button class="s08-trigger-btn s08-reopen-tabs-btn" id="s08-right-sidebar-trigger" aria-label="Toggle Side Panel" title="Toggle Side Panel [|]" style="display: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="18" height="18" x="3" y="3" rx="2"/>
+                          <path d="M15 3v18"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Conversational Body: 2-Level Scope Dropdown (Annotation 2: Work Area terminology & empty default state) -->
+                  <div class="s08-chat-col-body" id="s08-chat-col-body">
+                    
+                    <!-- Work Area Scope Selector Card (matching reference empty state) -->
+                    <div class="s08-scope-setup-bar" id="s08-scope-setup-bar">
+                      <!-- Circular icon badge at top matching reference -->
+                      <div class="s08-scope-card-icon-wrap" id="s08-scope-card-icon-wrap" aria-hidden="true" title="Select Work Area">
+                        <svg class="s08-scope-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="12" y1="5" x2="12" y2="19"></line>
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                      </div>
+
+                      <!-- Title matching reference modified to 'Select' per client feedback -->
+                      <h3 class="s08-scope-card-title" id="s08-scope-card-title">Select Work Area</h3>
+
+                      <!-- Subtitle matching reference -->
+                      <p class="s08-scope-card-desc" id="s08-scope-card-desc">Define a new project folder or domain boundary in your workspace.</p>
+
+                      <!-- Action Button triggering Scope Selector Dropdown -->
+                      <div class="s08-scope-dropdown-container" id="s08-scope-dropdown-container">
+                        <!-- Default state is empty with guidance prompt -->
+                        <button class="s08-scope-btn is-empty" id="s08-scope-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Select Work Area" data-custom-tooltip="Select Work Area" aria-label="Select Work Area">
+                          <svg class="s08-scope-btn-plus-icon" id="s08-scope-btn-plus-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                          </svg>
+                          <span class="s08-scope-ws-badge is-empty" id="s08-scope-ws-badge">Select Work Area</span>
+                          <span class="s08-scope-slash" id="s08-scope-slash" style="display: none;">/</span>
+                          <span class="s08-scope-wa-badge is-empty" id="s08-scope-wa-badge" style="display: none;">Folder</span>
+                          <svg class="s08-scope-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+
+                          <!-- 2-Level Cascading Submenu: Level 1 = Workspace, Level 2 = Folder -->
+                          <div class="s08-scope-root-menu" id="s08-scope-root-menu" role="menu">
+                            <div class="s08-scope-menu-header">Workspace</div>
+
+                            <!-- Repo 1: agent-research -->
+                            <div class="s08-scope-menu-sub-wrap" data-ws="agent-research" data-plan="Local">
+                              <button class="s08-scope-menu-item s08-sub-trigger" type="button" role="menuitem">
+                                <span class="s08-ws-name">agent-research</span>
+                                <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                              </button>
+                              <!-- Level 2 Submenu: Folders -->
+                              <div class="s08-scope-submenu" role="menu">
+                                <div class="s08-scope-submenu-header">Folder / Work Area</div>
+                                <button class="s08-submenu-item" data-ws="agent-research" data-wa="Development Sandbox" data-plan="Local" type="button" role="menuitem">
+                                  <span>Development Sandbox</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="agent-research" data-wa="Staging Preview" data-plan="Local" type="button" role="menuitem">
+                                  <span>Staging Preview</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="agent-research" data-wa="Production" data-plan="Local" type="button" role="menuitem">
+                                  <span>Production</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Repo 2: web-platform -->
+                            <div class="s08-scope-menu-sub-wrap" data-ws="web-platform" data-plan="GitHub">
+                              <button class="s08-scope-menu-item s08-sub-trigger" type="button" role="menuitem">
+                                <span class="s08-ws-name">web-platform</span>
+                                <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                              </button>
+                              <!-- Level 2 Submenu: Folders -->
+                              <div class="s08-scope-submenu" role="menu">
+                                <div class="s08-scope-submenu-header">Folder / Work Area</div>
+                                <button class="s08-submenu-item" data-ws="web-platform" data-wa="Development Sandbox" data-plan="GitHub" type="button" role="menuitem">
+                                  <span>Development Sandbox</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="web-platform" data-wa="Staging Preview" data-plan="GitHub" type="button" role="menuitem">
+                                  <span>Staging Preview</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="web-platform" data-wa="Production" data-plan="GitHub" type="button" role="menuitem">
+                                  <span>Production</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Repo 3: core-api -->
+                            <div class="s08-scope-menu-sub-wrap" data-ws="core-api" data-plan="GitLab">
+                              <button class="s08-scope-menu-item s08-sub-trigger" type="button" role="menuitem">
+                                <span class="s08-ws-name">core-api</span>
+                                <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                              </button>
+                              <!-- Level 2 Submenu: Folders -->
+                              <div class="s08-scope-submenu" role="menu">
+                                <div class="s08-scope-submenu-header">Folder / Work Area</div>
+                                <button class="s08-submenu-item" data-ws="core-api" data-wa="Development Sandbox" data-plan="GitLab" type="button" role="menuitem">
+                                  <span>Development Sandbox</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="core-api" data-wa="Staging Preview" data-plan="GitLab" type="button" role="menuitem">
+                                  <span>Staging Preview</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="core-api" data-wa="Production" data-plan="GitLab" type="button" role="menuitem">
+                                  <span>Production</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Repo 4: Acme Inc -->
+                            <div class="s08-scope-menu-sub-wrap" data-ws="Acme Inc" data-plan="Enterprise">
+                              <button class="s08-scope-menu-item s08-sub-trigger" type="button" role="menuitem">
+                                <span class="s08-ws-name">Acme Inc</span>
+                                <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                              </button>
+                              <!-- Level 2 Submenu: Folders -->
+                              <div class="s08-scope-submenu" role="menu">
+                                <div class="s08-scope-submenu-header">Work Areas</div>
+                                <button class="s08-submenu-item" data-ws="Acme Inc" data-wa="Design Engineering" data-plan="Enterprise" type="button" role="menuitem">
+                                  <span>Design Engineering</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="Acme Inc" data-wa="Sales & Marketing" data-plan="Enterprise" type="button" role="menuitem">
+                                  <span>Sales & Marketing</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="Acme Inc" data-wa="Travel" data-plan="Enterprise" type="button" role="menuitem">
+                                  <span>Travel</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            <!-- Repo 5: Global Logistics -->
+                            <div class="s08-scope-menu-sub-wrap" data-ws="Global Logistics" data-plan="Production">
+                              <button class="s08-scope-menu-item s08-sub-trigger" type="button" role="menuitem">
+                                <span class="s08-ws-name">Global Logistics</span>
+                                <svg class="s08-arrow-right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                              </button>
+                              <!-- Level 2 Submenu: Folders -->
+                              <div class="s08-scope-submenu" role="menu">
+                                <div class="s08-scope-submenu-header">Work Areas</div>
+                                <button class="s08-submenu-item" data-ws="Global Logistics" data-wa="Supply Chain" data-plan="Production" type="button" role="menuitem">
+                                  <span>Supply Chain</span>
+                                </button>
+                                <button class="s08-submenu-item" data-ws="Global Logistics" data-wa="Fleet Analytics" data-plan="Production" type="button" role="menuitem">
+                                  <span>Fleet Analytics</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            <div class="s08-submenu-divider"></div>
+                            <button class="s08-submenu-item create-action" type="button" id="s08-connect-repo-btn">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                              <span>Connect New Repository...</span>
+                            </button>
+
+                          </div>
+                        </div>
+                        <!-- Hidden context note preserved for accessibility and state reference -->
+                        <span class="s08-scope-context-note" id="s08-scope-context-note" style="display: none;">Primary: Workspace (codebase) • Secondary: Folder (execution sandbox)</span>
+                      </div>
+
+                    <!-- Interactive Dialogue Messages Stream -->
+                    <div class="s08-messages-stream" id="s08-messages-stream"></div>
+
+                  </div>
+
+                  <!-- Conversational Input Box with Agent Selector inside Query Input (Annotation 4 & 5) -->
+                  <div class="s08-chat-col-footer">
+                    <div class="s08-chat-input-box" id="s08-chat-input-box">
+                      <textarea 
+                        class="s08-chat-textarea" 
+                        id="s08-chat-textarea" 
+                        placeholder="e.g. What is the loan disbursement forecast for this month?"
+                        rows="1"
+                      ></textarea>
+                      <div class="s08-chat-input-actions">
+                        <div class="s08-input-actions-left">
+                          <button class="s08-chat-action-btn s08-attach-btn" id="s08-chat-attach-btn" type="button" aria-label="Add attachment" title="Add attachment or tool">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <line x1="12" x2="12" y1="5" y2="19"/>
+                              <line x1="5" x2="19" y1="12" y2="12"/>
+                            </svg>
+                          </button>
+
+                          <!-- Agent Selector Pill inside Query Input Section (Shows active agent name; truncated to 16 chars + ... with full name tooltip) -->
+                          <div class="s08-agent-pill-dropdown in-input" id="s08-agent-pill-dropdown">
+                            <button class="s08-agent-pill-btn" id="s08-agent-pill-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Agent General" data-custom-tooltip="Agent General" aria-label="Active Agent: Agent General" data-agent="Agent General">
+                              <span class="s08-agent-pill-label" id="s08-agent-pill-label">Agent General</span>
+                              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"/>
+                              </svg>
+                            </button>
+                            <div class="s08-agent-menu upward" id="s08-agent-menu" role="menu">
+                              <button class="s08-agent-menu-item" data-agent="Synthetix" type="button">
+                                <span>Synthetix</span>
+                              </button>
+                              <button class="s08-agent-menu-item active" data-agent="Agent General" type="button">
+                                <span>Agent General</span>
+                                <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                              </button>
+                              <button class="s08-agent-menu-item" data-agent="Design Engineer" type="button">
+                                <span>Design Engineer</span>
+                              </button>
+                              <button class="s08-agent-menu-item" data-agent="Sales Copilot" type="button">
+                                <span>Sales Copilot</span>
+                              </button>
+                              <button class="s08-agent-menu-item" data-agent="Business Analysis" type="button">
+                                <span>Business Analysis</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="s08-chat-input-right">
+                          <button class="s08-chat-action-btn s08-mic-btn" id="s08-chat-mic-btn" type="button" aria-label="Voice input" title="Voice input">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                              <line x1="12" x2="12" y1="19" y2="22"/>
+                            </svg>
+                          </button>
+                          <button class="s08-chat-send-btn s08-composer-send-btn" id="s08-chat-send-btn" type="button" aria-label="Send prompt" title="Send (Enter)" disabled>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <line x1="5" y1="12" x2="19" y2="12"/>
+                              <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Draggable Canvas Split Resizer (Annotation 6) -->
+                <div class="sutra-resizer s08-canvas-resizer" id="s08-canvas-resizer" role="separator" aria-orientation="vertical" title="Drag to resize panels">
+                  <div class="sutra-resizer-line"></div>
+                </div>
+
+                <!-- ============================================================
+                     COLUMN 2: GROUP OF TABS PANEL (matching Image 1 & Image 2)
+                     ============================================================ -->
+                <div class="s08-tabs-col" id="s08-tabs-col">
+                  
+                  <!-- Tab Bar Header -->
+                  <div class="s08-tabs-bar-header">
+                    <div class="s08-tabs-left">
+                      <!-- Simple clean expand / restore icon (Annotation 5) -->
+                      <button class="s08-tab-icon-btn s08-split-toggle-btn" id="s08-split-toggle-btn" type="button" title="Expand tabs to full width" aria-label="Toggle panel width">
+                        <svg class="s08-split-icon-expand" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="15 3 21 3 21 9"/>
+                          <polyline points="9 21 3 21 3 15"/>
+                          <line x1="21" y1="3" x2="14" y2="10"/>
+                          <line x1="3" y1="21" x2="10" y2="14"/>
+                        </svg>
+                        <svg class="s08-split-icon-collapse" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="4 14 10 14 10 20"/>
+                          <polyline points="20 10 14 10 14 4"/>
+                          <line x1="14" y1="10" x2="21" y2="3"/>
+                          <line x1="3" y1="21" x2="10" y2="14"/>
+                        </svg>
+                      </button>
+
+                      <!-- Scrollable Tabs Area (Annotation 3) -->
+                      <div class="s08-tabs-scroll-area" id="s08-tabs-scroll-area">
+                        <!-- Active Tab Pills List (Simultaneous Multi-Tab Open) -->
+                        <div class="s08-tab-pills-list" id="s08-tab-pills-list">
+                          <button class="s08-tab-pill active open-pane" data-tab-name="sources" type="button">
+                            <span class="s08-tab-pill-label">Artifacts</span>
+                            <span class="s08-tab-close-icon" title="Close tab">×</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Add Tab Button (+) & Dropdown: Pinned sibling so it is ALWAYS visible -->
+                      <div class="s08-add-tab-wrap" id="s08-add-tab-wrap">
+                        <button class="s08-tab-icon-btn s08-add-tab-btn" id="s08-add-tab-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Add tab">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" x2="12" y1="5" y2="19"/>
+                            <line x1="5" x2="19" y1="12" y2="12"/>
+                          </svg>
+                        </button>
+
+                        <!-- Dropdown Menu exactly matching Image 2, left-aligned -->
+                        <div class="s08-add-tab-menu" id="s08-add-tab-menu" role="menu">
+                          <button class="s08-tab-menu-item" data-tab-name="editor" role="menuitem" type="button">
+                            <span>Editor</span>
+                          </button>
+                          <button class="s08-tab-menu-item" data-tab-name="browser" role="menuitem" type="button">
+                            <span>browser</span>
+                          </button>
+                          <button class="s08-tab-menu-item" data-tab-name="log viewer" role="menuitem" type="button">
+                            <span>log viewer</span>
+                          </button>
+                          <button class="s08-tab-menu-item" data-tab-name="sources" role="menuitem" type="button">
+                            <span>Artifacts</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Tab Overflow Chevron Dropdown ([▼]) -->
+                      <div class="s08-tab-overflow-wrap" id="s08-tab-overflow-wrap" style="display: none;">
+                        <button class="s08-tab-icon-btn s08-tab-overflow-btn" id="s08-tab-overflow-btn" type="button" aria-haspopup="true" aria-expanded="false" title="All open tabs">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"/>
+                          </svg>
+                          <span class="s08-tab-count-badge" id="s08-tab-count-badge">0</span>
+                        </button>
+                        <div class="s08-tab-overflow-menu" id="s08-tab-overflow-menu" role="menu">
+                          <div class="s08-overflow-menu-header">
+                            <span>Open Tabs</span>
+                            <span class="s08-overflow-count" id="s08-overflow-count">0</span>
+                          </div>
+                          <div class="s08-overflow-list" id="s08-overflow-list"></div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- Dedicated Background Section for Right Action Icons (Annotation 1) -->
+                    <div class="s08-tabs-actions-dock" id="s08-tabs-actions-dock">
+                      <!-- Extreme Right Close Button (✕) -->
+                      <button class="s08-tab-icon-btn s08-close-tabs-btn" id="s08-close-tabs-btn" type="button" aria-label="Close panel" title="Close panel">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" x2="6" y1="6" y2="18"/>
+                          <line x1="6" x2="18" y1="6" y2="18"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Tab Panels / Views Container (Responsive Tab Views) -->
+                  <div class="s08-tab-views-container" id="s08-tab-views-container">
+                    
+                    <!-- 1. Artifacts / Files View (Left, Full Height) -->
+                    <div class="s08-tab-view is-open active" id="s08-view-sources">
+                      <!-- Synthetix Files View (Shown when Synthetix agent is active) -->
+                      <div class="s08-synthetix-files-view" id="s08-synthetix-files-view" style="display: none;">
+                        <div class="s08-sources-topbar">
+                        <span class="s08-sources-title" id="s08-sources-title">Workspace Tree (No Workspace Selected)</span>
+                        <div class="s08-sources-actions">
+                          <button class="s08-tree-action-btn" id="s08-tree-toggle-all" type="button" title="Collapse all" aria-label="Toggle all folders" data-custom-tooltip="Collapse all" style="display: none;">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="4 14 10 14 10 20"/>
+                              <polyline points="20 10 14 10 14 4"/>
+                              <line x1="14" y1="10" x2="21" y2="3"/>
+                              <line x1="10" y1="14" x2="3" y2="21"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Empty State (Shown when no workspace & folder selected) -->
+                      <div class="s08-sources-empty-state" id="s08-sources-empty-state">
+                        <div class="s08-empty-state-icon-wrap">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+                            <line x1="12" y1="11" x2="12" y2="17"/>
+                            <line x1="9" y1="14" x2="15" y2="14"/>
+                          </svg>
+                        </div>
+                        <h4 class="s08-empty-state-title" id="s08-sources-empty-title">No Workspace Selected</h4>
+                        <p class="s08-empty-state-desc" id="s08-sources-empty-desc">Select a workspace and folder in the conversation scope to view and explore the project file tree.</p>
+                        <button class="sutra-btn sutra-btn-ghost sutra-btn-sm" id="s08-empty-select-scope-btn" type="button">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"/>
+                            <line x1="1.05" y1="12" x2="7" y2="12"/>
+                            <line x1="17.01" y1="12" x2="22.96" y2="12"/>
+                          </svg>
+                          <span>Select Scope</span>
+                        </button>
+                      </div>
+
+                      <div class="s08-sources-tree" id="s08-sources-tree" style="display: none;">
+                        <div class="s08-file-tree" role="tree" aria-label="Changed files tree">
+                          
+                          <!-- Folder: src/ -->
+                          <div class="s08-tree-node s08-tree-folder open" data-path="src">
+                            <button class="s08-tree-trigger" type="button" aria-expanded="true" title="Toggle src folder">
+                              <svg class="s08-tree-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"/>
+                              </svg>
+                              <svg class="s08-tree-icon folder-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+                              </svg>
+                              <span class="s08-tree-name">src</span>
+                            </button>
+                            <div class="s08-tree-content">
+                              <div class="s08-tree-content-inner">
+                              <!-- File: app.tsx -->
+                              <button class="s08-tree-file active" type="button" data-path="src/app.tsx" data-lang="typescript" title="src/app.tsx">
+                                <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                  <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span class="s08-tree-name">app.tsx</span>
+                                <span class="s08-tree-badge badge-modified" title="Modified">M</span>
+                              </button>
+
+                              <!-- File: forecast.ts -->
+                              <button class="s08-tree-file" type="button" data-path="src/forecast.ts" data-lang="typescript" title="src/forecast.ts">
+                                <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                  <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span class="s08-tree-name">forecast.ts</span>
+                                <span class="s08-tree-badge badge-added" title="Added">+</span>
+                              </button>
+
+                              <!-- Subfolder: tokens/ -->
+                              <div class="s08-tree-node s08-tree-folder open" data-path="src/tokens">
+                                <button class="s08-tree-trigger" type="button" aria-expanded="true" title="Toggle tokens folder">
+                                  <svg class="s08-tree-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"/>
+                                  </svg>
+                                  <svg class="s08-tree-icon folder-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+                                  </svg>
+                                  <span class="s08-tree-name">tokens</span>
+                                </button>
+                                <div class="s08-tree-content">
+                                  <div class="s08-tree-content-inner">
+                                  <!-- File: colors.json -->
+                                  <button class="s08-tree-file" type="button" data-path="src/tokens/colors.json" data-lang="json" title="src/tokens/colors.json">
+                                    <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                      <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                    <span class="s08-tree-name">colors.json</span>
+                                    <span class="s08-tree-badge badge-modified" title="Modified">M</span>
+                                  </button>
+                                  <!-- File: typography.json -->
+                                  <button class="s08-tree-file" type="button" data-path="src/tokens/typography.json" data-lang="json" title="src/tokens/typography.json">
+                                    <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                      <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                    <span class="s08-tree-name">typography.json</span>
+                                    <span class="s08-tree-badge badge-modified" title="Modified">M</span>
+                                  </button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Subfolder: components/ -->
+                              <div class="s08-tree-node s08-tree-folder" data-path="src/components">
+                                <button class="s08-tree-trigger" type="button" aria-expanded="false" title="Toggle components folder">
+                                  <svg class="s08-tree-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"/>
+                                  </svg>
+                                  <svg class="s08-tree-icon folder-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+                                  </svg>
+                                  <span class="s08-tree-name">components</span>
+                                </button>
+                                <div class="s08-tree-content">
+                                  <div class="s08-tree-content-inner">
+                                  <button class="s08-tree-file" type="button" data-path="src/components/file-tree.tsx" data-lang="typescript" title="src/components/file-tree.tsx">
+                                    <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                      <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                    <span class="s08-tree-name">file-tree.tsx</span>
+                                    <span class="s08-tree-badge badge-added" title="Added">+</span>
+                                  </button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- File: package.json (root) -->
+                          <button class="s08-tree-file" type="button" data-path="package.json" data-lang="json" title="package.json">
+                            <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                              <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                            <span class="s08-tree-name">package.json</span>
+                            <span class="s08-tree-badge badge-modified" title="Modified">M</span>
+                          </button>
+
+                          <!-- File: README.md (root) -->
+                          <button class="s08-tree-file" type="button" data-path="README.md" data-lang="markdown" title="README.md">
+                            <svg class="s08-tree-icon file-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                              <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                            <span class="s08-tree-name">README.md</span>
+                          </button>
+
+                        </div>
+                      </div>
+                      </div><!-- End .s08-synthetix-files-view -->
+
+                      <!-- Artifacts View (Shown for ALL other agents per reference design) -->
+                      <div class="s08-artifacts-view" id="s08-artifacts-view">
+                        <!-- 1. Upload Files Card Container -->
+                        <div class="s08-artifacts-upload-card">
+                          <!-- Dashed Drag & Drop Zone -->
+                          <div class="s08-artifacts-dropzone" id="s08-artifacts-dropzone" tabindex="0" role="button" aria-label="Upload files by dragging or browsing">
+                            <div class="s08-dropzone-icon-wrap">
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+                                <path d="M12 12v9"/>
+                                <path d="m16 16-4-4-4 4"/>
+                              </svg>
+                            </div>
+                            <div class="s08-dropzone-info">
+                              <span class="s08-dropzone-title">Upload files</span>
+                              <span class="s08-dropzone-sub">Drag & drop or browse from device</span>
+                            </div>
+                            <button class="sutra-btn sutra-btn-ghost sutra-btn-sm" id="s08-artifacts-browse-btn" type="button">Browse</button>
+                            <input type="file" id="s08-artifacts-file-input" multiple style="display: none;">
+                          </div>
+
+                          <!-- Integration Quick Source Buttons (Google Drive, OneDrive) -->
+                          <div class="s08-artifacts-sources-row">
+                            <button class="s08-source-pill-btn" id="s08-gdrive-btn" type="button" title="Import from Google Drive" data-custom-tooltip="Import from Google Drive" aria-label="Import from Google Drive">
+                              <svg width="14" height="14" viewBox="0 0 87.3 78" fill="none">
+                                <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066DA"/>
+                                <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00AC47"/>
+                                <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H59.8l6.1 10.55z" fill="#EA4335"/>
+                                <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D"/>
+                                <path d="m59.8 53h27.5c0-1.55-.4-3.1-1.2-4.5l-20.2-35-6.1 10.5z" fill="#FFBA00"/>
+                                <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25l16.15 28h27.5c0-1.55-.4-3.1-1.2-4.5z" fill="#2684FC"/>
+                              </svg>
+                              <span>Google Drive</span>
+                            </button>
+
+                            <button class="s08-source-pill-btn" id="s08-onedrive-btn" type="button" title="Import from Microsoft OneDrive" data-custom-tooltip="Import from Microsoft OneDrive" aria-label="Import from Microsoft OneDrive">
+                              <svg width="15" height="15" viewBox="0 0 24 24" fill="#0078D4">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+                              </svg>
+                              <span>OneDrive</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- 3. Search & Filter Toolbar -->
+                        <div class="s08-artifacts-toolbar">
+                          <div class="s08-artifacts-search-row">
+                            <div class="s08-artifacts-search-wrap">
+                              <svg class="s08-artifacts-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.3-4.3"/>
+                              </svg>
+                              <input type="text" class="s08-artifacts-search-input" id="s08-artifacts-search-input" placeholder="Search files..." aria-label="Search files">
+                            </div>
+                            <button class="sutra-btn sutra-btn-ghost sutra-btn-icon s08-artifacts-filter-btn" id="s08-artifacts-filter-btn" type="button" aria-label="Filter" title="Filter options">
+                              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <line x1="4" y1="7" x2="20" y2="7"/>
+                                <line x1="8" y1="12" x2="20" y2="12"/>
+                                <line x1="14" y1="17" x2="20" y2="17"/>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <!-- Existing Sutra Tab Component for Filter Tabs -->
+                          <div class="sutra-tab-pill-bar sutra-tab-pill-bar-sm" id="s08-artifacts-filter-tabs" role="tablist" aria-label="Filter artifacts">
+                            <button class="sutra-tab-pill active" data-filter="all" type="button" role="tab" aria-selected="true">All</button>
+                            <button class="sutra-tab-pill" data-filter="uploaded" type="button" role="tab" aria-selected="false">Uploaded</button>
+                            <button class="sutra-tab-pill" data-filter="generated" type="button" role="tab" aria-selected="false">Generated</button>
+                          </div>
+                        </div>
+
+                        <!-- 4. Empty State Section (HERE EMPTY STATE) -->
+                        <div class="s08-artifacts-empty-state" id="s08-artifacts-empty-state">
+                          <div class="s08-empty-state-icon-wrap">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                              <polyline points="3.29 7 12 12 20.71 7"/>
+                              <line x1="12" y1="22" x2="12" y2="12"/>
+                            </svg>
+                          </div>
+                          <h4 class="s08-empty-state-title">No artifacts yet</h4>
+                          <p class="s08-empty-state-desc">Upload files or generate outputs during your agent sessions to view and manage them here.</p>
+                        </div>
+
+                        <!-- 5. Artifacts List (Populated on upload / generation) -->
+                        <div class="s08-artifacts-list" id="s08-artifacts-list" style="display: none;"></div>
+
+                      </div><!-- End .s08-artifacts-view -->
+                    </div><!-- End #s08-view-sources -->
+
+                    <!-- Vertical Pane Resizer between Left Pane and Right Panes -->
+                    <div class="sutra-resizer s08-tab-resizer-v" id="s08-tab-resizer-v" role="separator" aria-orientation="vertical" title="Drag to resize pane width">
+                      <div class="sutra-resizer-line"></div>
+                    </div>
+
+                    <!-- 2. Browser View (Right, Top) -->
+                    <div class="s08-tab-view" id="s08-view-browser" style="display: none;">
+                      <div class="s08-browser-address-bar">
+                        <div class="s08-browser-nav-btns">
+                          <button class="s08-browser-btn" id="s08-browser-back-btn" type="button" title="Back"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                          <button class="s08-browser-btn" id="s08-browser-forward-btn" type="button" title="Forward"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+                          <button class="s08-browser-btn" id="s08-browser-reload-btn" type="button" title="Reload"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></button>
+                        </div>
+                        <div class="s08-browser-url-pill">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                          <input class="s08-browser-url-input" id="s08-browser-url-input" type="text" value="http://localhost:3000/app/preview" placeholder="Search application or enter URL (e.g. localhost:3000)..." aria-label="Browser Address Bar" spellcheck="false" />
+                        </div>
+                        <button class="s08-logs-action-btn s08-browser-close-btn" id="s08-browser-close-btn" type="button" title="Close Browser" aria-label="Close Browser">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="s08-browser-canvas-wrap" id="s08-browser-canvas-wrap">
+                        <div class="s08-browser-blank-canvas" id="s08-browser-blank-canvas">
+                          <div class="s08-canvas-art-box">
+                            <div class="s08-canvas-icon-badge">
+                              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" x2="22" y1="12" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                              </svg>
+                            </div>
+                            <h4 class="s08-canvas-heading">Web Browser & Application Preview</h4>
+                            <p class="s08-canvas-text">Search for any web application or enter a URL above to inspect live pages, test local dev servers (e.g. localhost:3000), or preview agent-built web apps.</p>
+
+                            <div class="s08-canvas-search-box">
+                              <svg class="s08-canvas-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                              <input type="text" class="s08-canvas-search-input" id="s08-canvas-search-input" placeholder="Search application or enter URL..." aria-label="Search or enter URL" spellcheck="false" />
+                              <button class="s08-canvas-search-btn" id="s08-canvas-search-btn" type="button">Open</button>
+                            </div>
+
+                            <div class="s08-canvas-quick-chips">
+                              <span class="s08-chips-label">Quick launch:</span>
+                              <button class="s08-canvas-chip" type="button" data-url="https://jira.enterprise.internal/epics/EPIC-104" title="Open Jira Epic EPIC-104">
+                                <span class="chip-status-dot" style="background-color: var(--color-vendor-jira-blue, #0052CC);"></span>
+                                <span>Jira: EPIC-104</span>
+                              </button>
+                              <button class="s08-canvas-chip" type="button" data-url="http://localhost:3000">
+                                <span class="chip-status-dot"></span>
+                                <span>localhost:3000</span>
+                              </button>
+                              <button class="s08-canvas-chip" type="button" data-url="http://localhost:5173">
+                                <span class="chip-status-dot"></span>
+                                <span>localhost:5173</span>
+                              </button>
+                              <button class="s08-canvas-chip" type="button" data-url="https://docs.github.com">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                <span>Docs</span>
+                              </button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Horizontal Pane Resizer between Stage and Monitor (Phase 10) -->
+                    <div class="sutra-resizer s08-tab-resizer-h" id="s08-tab-resizer-h" role="separator" aria-orientation="horizontal" tabindex="0" aria-label="Resize Stage and Monitor split" title="Drag to resize height • Double-click to reset" data-custom-tooltip="Drag to resize height • Double-click to reset">
+                      <div class="sutra-resizer-line"></div>
+                    </div>
+
+                    <!-- 3. Stage Deliverable / Editor View (Supports Code, Markdown Specs, Unified Diffs, and SVG Diagrams) -->
+                    <div class="s08-tab-view" id="s08-view-editor" style="display: none;">
+                      <div class="s08-editor-topbar" id="s08-stage-topbar">
+                        <div class="s08-stage-topbar-left">
+                          <div class="s08-stage-file-icon" id="s08-stage-file-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="16 18 22 12 16 6"/>
+                              <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                          </div>
+                          <div class="s08-stage-meta-cluster">
+                            <span class="s08-editor-filename" id="s08-stage-filename">workspace_config.json</span>
+                          </div>
+                        </div>
+
+                        <div class="s08-stage-topbar-right">
+                          <!-- Markdown Preview / Raw View Toggle -->
+                          <div class="s08-stage-segmented-toggle" id="s08-stage-view-toggles" style="display: none;">
+                            <button class="s08-stage-toggle-btn active" id="s08-stage-toggle-preview" type="button" title="Preview document" aria-label="Preview document" data-custom-tooltip="Preview">
+                              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                              </svg>
+                            </button>
+                            <button class="s08-stage-toggle-btn" id="s08-stage-toggle-raw" type="button" title="Raw markdown source" aria-label="Raw markdown source" data-custom-tooltip="Raw source">
+                              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                              </svg>
+                            </button>
+                          </div>
+
+                          <div class="s08-stage-topbar-actions">
+                            <button class="s08-logs-action-btn s08-stage-action-btn" id="s08-stage-diff-btn" type="button" title="View Changes / Diff" aria-label="View Changes" data-custom-tooltip="View Changes / Diff" style="display: none;">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="6" y1="3" x2="6" y2="15"/>
+                                <circle cx="18" cy="6" r="3"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <path d="M18 9a9 9 0 0 1-9 9"/>
+                              </svg>
+                            </button>
+                            <button class="s08-logs-action-btn s08-stage-action-btn" id="s08-stage-copy-btn" type="button" title="Copy Content" aria-label="Copy">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                              </svg>
+                            </button>
+                            <button class="s08-logs-action-btn s08-stage-action-btn" id="s08-stage-dl-btn" type="button" title="Download Deliverable" aria-label="Download">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                              </svg>
+                            </button>
+                            <button class="s08-logs-action-btn s08-stage-close-btn" id="s08-stage-close-btn" type="button" title="Close Stage" aria-label="Close Stage">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Stage Deliverable Container -->
+                      <div class="s08-stage-content-wrap" id="s08-stage-content-wrap">
+                        <!-- 1. Rich Markdown Container -->
+                        <div class="s08-stage-markdown-view" id="s08-stage-markdown-view" style="display: none;"></div>
+
+                        <!-- 2. Unified Git Diff Container -->
+                        <div class="s08-stage-diff-view" id="s08-stage-diff-view" style="display: none;"></div>
+
+                        <!-- 3. SVG Diagram Container -->
+                        <div class="s08-stage-diagram-view" id="s08-stage-diagram-view" style="display: none;"></div>
+
+                        <!-- Floating Diagram Zoom Controls at bottom of image/diagram viewer -->
+                        <div class="s08-stage-zoom-controls" id="s08-stage-zoom-controls" style="display: none;">
+                          <button class="s08-stage-zoom-btn" id="s08-stage-zoom-out" type="button" title="Zoom out" aria-label="Zoom out">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                          </button>
+                          <span class="s08-stage-zoom-level" id="s08-stage-zoom-level">100%</span>
+                          <button class="s08-stage-zoom-btn" id="s08-stage-zoom-in" type="button" title="Zoom in" aria-label="Zoom in">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                          </button>
+                          <button class="s08-stage-zoom-btn" id="s08-stage-zoom-reset" type="button" title="Reset zoom">Fit</button>
+                        </div>
+
+                        <!-- 4. Default Code/JSON View -->
+                        <div class="s08-editor-content" id="s08-stage-code-view">
+                          <pre><code id="s08-stage-code-text">{
+  "workspace": "Acme Inc",
+  "plan": "Enterprise",
+  "activeWorkArea": "Design Engineering",
+  "agent": "Agent General",
+  "subtasks": [
+    { "id": "task-01", "name": "Extract Token Hierarchy", "status": "done" },
+    { "id": "task-02", "name": "Compile Color Matrix", "status": "active" },
+    { "id": "task-03", "name": "Sync Figma Variables", "status": "pending" }
+  ]
+}</code></pre>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 4. Log Viewer View (Right, Bottom below Browser with generous outer padding) -->
+                    <div class="s08-tab-view" id="s08-view-log-viewer" style="display: none;">
+                      <div class="s08-logs-card" id="s08-logs-card">
+                        <div class="s08-logs-topbar">
+                          <div class="s08-logs-topbar-left">
+                            <span class="s08-logs-status-indicator" title="Stream Active"></span>
+                            <span class="s08-logs-title">Agent Execution Stream</span>
+                          </div>
+                          <div class="s08-logs-topbar-right">
+                            <div class="s08-logs-header-actions" id="s08-logs-header-actions">
+                              <button class="s08-logs-action-btn" id="s08-logs-clear-btn" type="button" title="Clear Log Stream" aria-label="Clear logs">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <circle cx="12" cy="12" r="10"/>
+                                  <line x1="4.93" x2="19.07" y1="4.93" y2="19.07"/>
+                                </svg>
+                              </button>
+                              <button class="s08-logs-action-btn s08-logs-close-btn" id="s08-logs-close-btn" type="button" title="Close Log Viewer" aria-label="Close Log Viewer">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="s08-logs-content">
+                          <div class="s08-log-row info"><span class="log-t">[01:15:02]</span> <span class="log-tag">INFO</span> Agent runtime initialized with Agent General.</div>
+                          <div class="s08-log-row info"><span class="log-t">[01:15:05]</span> <span class="log-tag">SCOPE</span> Workspace scope resolved: Acme Inc / Design Engineering.</div>
+                          <div class="s08-log-row ok"><span class="log-t">[01:15:08]</span> <span class="log-tag">READY</span> Sources and Browser canvas mounted.</div>
+                          <div class="s08-log-row info"><span class="log-t">[01:15:10]</span> <span class="log-tag">WAIT</span> Awaiting user prompt or task instruction...</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 5. No Tabs Open Placeholder View -->
+                    <div class="s08-no-tabs-view" id="s08-no-tabs-view" style="display: none;">
+                      <div class="s08-empty-state-icon-wrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                          <line x1="3" y1="9" x2="21" y2="9"/>
+                          <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                      </div>
+                      <h4 class="s08-empty-state-title" id="s08-no-tabs-title">No Tabs Open</h4>
+                      <p class="s08-empty-state-desc" id="s08-no-tabs-desc">Select a tab from the "+" menu above or reopen Artifacts.</p>
+                      <button class="sutra-btn sutra-btn-ghost sutra-btn-sm" id="s08-empty-reopen-tab-btn" type="button">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                          <path d="M3 3v5h5"/>
+                        </svg>
+                        <span id="s08-empty-reopen-tab-label">Reopen Artifacts</span>
+                      </button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Kebab Dropdown Menu (Strictly Light Theme per Sutra Design System) -->
+  <div class="s08-kebab-menu" id="s08-kebab-menu" role="menu" aria-label="Task Options">
+    <!-- Rename -->
+    <button class="s08-kebab-item" id="menu-action-rename" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+        <path d="m15 5 4 4"/>
+      </svg>
+      <span>Rename</span>
+    </button>
+
+    <!-- Pin / Unpin -->
+    <button class="s08-kebab-item" id="menu-action-pin" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" x2="12" y1="17" y2="22"/>
+        <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+      </svg>
+      <span id="menu-pin-label">Pin</span>
+    </button>
+
+    <div class="s08-kebab-divider" role="separator"></div>
+
+    <!-- Share -->
+    <button class="s08-kebab-item" id="menu-action-share" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+        <polyline points="16 6 12 2 8 6"/>
+        <line x1="12" x2="12" y1="2" y2="15"/>
+      </svg>
+      <span>Share</span>
+    </button>
+
+    <div class="s08-kebab-divider" role="separator"></div>
+
+    <!-- Archive -->
+    <button class="s08-kebab-item" id="menu-action-archive" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="20" height="5" x="2" y="3" rx="1"/>
+        <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/>
+        <path d="M10 12h4"/>
+      </svg>
+      <span>Archive</span>
+    </button>
+
+    <!-- Delete -->
+    <button class="s08-kebab-item danger" id="menu-action-delete" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 6h18"/>
+        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+        <line x1="10" x2="10" y1="11" y2="17"/>
+        <line x1="14" x2="14" y1="11" y2="17"/>
+      </svg>
+      <span>Delete</span>
+    </button>
+
+    <div class="s08-kebab-divider" role="separator"></div>
+
+    <!-- Move to project -->
+    <button class="s08-kebab-item" id="menu-action-move" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+      </svg>
+      <span>Move to project</span>
+      <svg class="s08-kebab-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="m9 18 6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Folder Options Kebab Menu (Progressive Disclosure per Annotation 6) -->
+  <div class="s08-kebab-menu s08-folder-kebab-menu" id="s08-folder-kebab-menu" role="menu" aria-label="Folder Options">
+    <!-- Add Task in Folder -->
+    <button class="s08-kebab-item" id="menu-folder-add-task" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" x2="12" y1="5" y2="19"/>
+        <line x1="5" x2="19" y1="12" y2="12"/>
+      </svg>
+      <span>New task in folder</span>
+    </button>
+
+    <!-- Rename Folder -->
+    <button class="s08-kebab-item" id="menu-folder-rename" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+        <path d="m15 5 4 4"/>
+      </svg>
+      <span>Rename folder</span>
+    </button>
+
+    <div class="s08-kebab-divider" role="separator"></div>
+
+    <!-- Delete Folder (Annotation 6) -->
+    <button class="s08-kebab-item danger" id="menu-folder-delete" role="menuitem" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 6h18"/>
+        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+        <line x1="10" x2="10" y1="11" y2="17"/>
+        <line x1="14" x2="14" y1="11" y2="17"/>
+      </svg>
+      <span>Delete folder</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       Confirm Undo Modal Dialog (Annotation 1 - Reference Snapshot 2)
+       ========================================================================== -->
+  <div class="sutra-modal-backdrop" id="s08-confirm-undo-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="s08-undo-modal-title">
+    <div class="sutra-modal-card">
+      <div class="sutra-modal-header">
+        <h3 class="sutra-modal-title" id="s08-undo-modal-title">Confirm Undo</h3>
+        <button class="sutra-modal-close-btn" id="s08-undo-modal-close" type="button" aria-label="Close dialog" title="Close dialog (Esc)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="sutra-modal-desc">Confirming this undo action will make the following changes:</p>
+
+      <div class="sutra-modal-changes-list" id="s08-undo-changes-list">
+        <div class="sutra-change-row">
+          <div class="sutra-change-icon query">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="sutra-change-info">
+            <span class="sutra-change-name" id="s08-undo-prompt-preview">User prompt</span>
+            <span class="sutra-change-detail">Restored to chat composer for editing</span>
+          </div>
+          <span class="sutra-change-badge restore">Restore</span>
+        </div>
+
+        <div class="sutra-change-row">
+          <div class="sutra-change-icon agent">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="12" x="4" y="8" rx="2"/>
+              <path d="M2 14h2"/>
+              <path d="M20 14h2"/>
+              <path d="M15 13v2"/>
+              <path d="M9 13v2"/>
+            </svg>
+          </div>
+          <div class="sutra-change-info">
+            <span class="sutra-change-name">Agent Response &amp; Outputs</span>
+            <span class="sutra-change-detail" id="s08-undo-agent-preview">Output generated for this query will be cleared</span>
+          </div>
+          <span class="sutra-change-badge revert" id="s08-undo-turns-badge">-1 turn</span>
+        </div>
+
+        <div class="sutra-change-row">
+          <div class="sutra-change-icon workspace">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" x2="22" y1="12" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="sutra-change-info">
+            <span class="sutra-change-name">Execution Context</span>
+            <span class="sutra-change-detail">Revert thread and reset state to this checkpoint</span>
+          </div>
+          <span class="sutra-change-badge roll">Rollback</span>
+        </div>
+      </div>
+
+      <div class="sutra-modal-actions">
+        <button class="sutra-modal-btn cancel" id="s08-undo-modal-cancel" type="button">Cancel</button>
+        <button class="sutra-modal-btn confirm" id="s08-undo-modal-confirm" type="button">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Button Variation Group Showcase Modal (Canonical Design System Specification)
+       ========================================================================== -->
+  <div class="sutra-modal-backdrop" id="sutra-button-showcase-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sutra-button-showcase-title">
+    <div class="sutra-modal-card sutra-modal-card-sm">
+      <div class="sutra-modal-header">
+        <div>
+          <h3 class="sutra-modal-title" id="sutra-button-showcase-title">Button Variations</h3>
+          <p class="sutra-modal-subtitle">Primary Brand: #006EF5 • Full Round Capsule</p>
+        </div>
+        <button class="sutra-modal-close-btn" id="sutra-button-showcase-close" type="button" aria-label="Close dialog" title="Close dialog (Esc)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- The 4 Buttons Stacked Exactly as in Reference Image -->
+      <div class="sutra-showcase-stage">
+        <!-- 1. Primary -->
+        <button class="sutra-btn sutra-btn-primary" type="button">Primary</button>
+
+        <!-- 2. Secondary -->
+        <button class="sutra-btn sutra-btn-secondary" type="button">Secondary</button>
+
+        <!-- 3. Ghost -->
+        <button class="sutra-btn sutra-btn-ghost" type="button">Ghost</button>
+
+        <!-- 4. Text -->
+        <button class="sutra-btn sutra-btn-text" type="button">Text</button>
+      </div>
+
+      <!-- Specs Card -->
+      <div class="sutra-showcase-specs">
+        <div><strong>Primary:</strong> Solid #006EF5</div>
+        <div><strong>Secondary:</strong> Outline #006EF5</div>
+        <div><strong>Ghost:</strong> #E2E8F0 Border</div>
+        <div><strong>Text:</strong> Pure Text Action</div>
+      </div>
+
+      <div class="sutra-modal-actions">
+        <button class="sutra-modal-btn cancel" id="sutra-button-showcase-dismiss" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Reference 1: Feedback Dialog (A thumbs-down that asks why, so the signal arrives with a reason attached)
+       ========================================================================== -->
+  <div class="sutra-modal-backdrop" id="s08-feedback-dialog-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="s08-feedback-title">
+    <div class="sutra-modal-card s08-feedback-card">
+      <div class="s08-feedback-header">
+        <div class="s08-feedback-icon-title">
+          <div class="s08-feedback-icon-wrap" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"/>
+            </svg>
+          </div>
+          <h3 class="s08-feedback-title" id="s08-feedback-title">What went wrong?</h3>
+        </div>
+        <div class="s08-feedback-header-right">
+          <span class="s08-feedback-optional-badge">optional</span>
+          <button class="sutra-modal-close-btn" id="s08-feedback-close-btn" type="button" aria-label="Close feedback dialog" title="Close (Esc)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="s08-feedback-chips-group" role="group" aria-label="Feedback reason categories">
+        <button class="s08-feedback-tag-chip" type="button" data-reason="Not factual">Not factual</button>
+        <button class="s08-feedback-tag-chip" type="button" data-reason="Didn't follow instructions">Didn't follow instructions</button>
+        <button class="s08-feedback-tag-chip" type="button" data-reason="Too long">Too long</button>
+        <button class="s08-feedback-tag-chip" type="button" data-reason="Unsafe">Unsafe</button>
+      </div>
+
+      <div class="s08-feedback-input-wrap">
+        <textarea class="s08-feedback-textarea" id="s08-feedback-comment" placeholder="Anything else?" rows="2" aria-label="Additional feedback comments"></textarea>
+      </div>
+
+      <div class="s08-feedback-actions">
+        <button class="s08-feedback-submit-btn" id="s08-feedback-submit" type="button">Send feedback</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Design System Tooltip Engine -->
+  <script src="js/tooltip.js"></script>
+
+  <!-- JavaScript Controller -->
+  <script src="js/main.js?v=2"></script>
+
+  <!-- Agentation Visual Feedback & Annotation Tool for AI Pair-Programming -->
+  <script src="js/agentation.js"></script>
+
+  <!-- Dev-Only: break-ui Adversarial Stress Testing Harness -->
+  <script src="js/break-ui-harness.js"></script>
+</body>
+</html>

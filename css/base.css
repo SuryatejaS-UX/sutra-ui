@@ -1,0 +1,195 @@
+/* ==========================================================================
+   SUTRA BASE & RESET STYLES
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md, 16px);
+  letter-spacing: var(--tracking-normal, 0em);
+  font-optical-sizing: auto;
+  background-color: var(--color-surface-canvas, #F8FAFC); /* Outer page canvas backdrop */
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Global Subtle Auto-Hiding Scrollbar (Applicable across entire application) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*:hover {
+  scrollbar-color: var(--color-border-hover) transparent;
+}
+
+*:active {
+  scrollbar-color: var(--color-text-tertiary) transparent;
+}
+
+*.is-scrolling {
+  scrollbar-color: var(--color-border-focus) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Default state: scrollbar thumb is invisible */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: var(--radius-full);
+  transition: background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reveal subtle low-contrast scrollbar when hovering the scrollable container or track */
+*:hover::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Soft, light color when hovering directly on the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-disabled) !important;
+}
+
+/* When selected / clicked / dragged: Soft light color, never too dark */
+::-webkit-scrollbar-thumb:active,
+*::-webkit-scrollbar-thumb:active {
+  background: var(--color-text-tertiary) !important;
+}
+
+/* Reveal scrollbar when container is actively being scrolled */
+*.is-scrolling::-webkit-scrollbar-thumb {
+  background: var(--color-border-focus);
+}
+
+/* Base Typography & Optical Sizing */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-optical-sizing: auto;
+}
+
+h1, .sutra-catalogue-title {
+  letter-spacing: var(--tracking-tighter, -0.025em);
+}
+
+h2, h3, .sutra-modal-title {
+  letter-spacing: var(--tracking-tight, -0.015em);
+}
+
+/* Base Inline Code & Monospace Chips */
+code:not(pre code) {
+  font-family: var(--font-family-code, monospace);
+  font-size: var(--font-size-xs, 12px);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs, 4px);
+  background-color: var(--color-code-bg, #FFFFFF);
+  border: 1px solid var(--color-code-border, #E2E8F0);
+  color: var(--color-code-text, #0F172A);
+  box-shadow: var(--color-code-shadow, none);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+/* Base interactive elements (Composite-only transitions; avoid 'all' to prevent reflows) */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring),
+              background-color var(--duration-micro, 160ms) ease,
+              color var(--duration-micro, 160ms) ease,
+              box-shadow var(--duration-micro, 160ms) ease,
+              border-color var(--duration-micro, 160ms) ease;
+}
+
+button:focus-visible, 
+input:focus-visible, 
+textarea:focus-visible,
+[role="button"]:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(0, 110, 245, 0.25));
+}
+
+input {
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+a {
+  color: var(--color-text-brand);
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Accessibility: Humane Reduced Motion (Non-vestibular comfort while preserving state feedback) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  /* Preserve non-vestibular opacity and color fades so users don't lose context */
+  button, [role="button"], a, input, .sutra-tab-pill, .s08-tab-pill, .sutra-agent-card, .s08-tab-view {
+    transition-property: opacity, background-color, border-color, color, box-shadow !important;
+    transform: none !important;
+  }
+}
+
+/* Accessibility: Reduced Transparency Fallback (Ensure solid legibility when requested) */
+@media (prefers-reduced-transparency: reduce) {
+  .sutra-icon-dock,
+  .sutra-window-chrome,
+  .s08-tabs-bar-header,
+  .s08-add-tab-menu,
+  .s08-agent-menu,
+  .s08-scope-root-menu,
+  .s08-scope-submenu,
+  .s08-tab-overflow-menu,
+  .s08-kebab-menu {
+    background-color: var(--material-menu-bg, var(--color-surface-card)) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .sutra-tooltip {
+    background-color: var(--tooltip-bg, #0F172A) !important;
+    color: var(--tooltip-text, #FFFFFF) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+

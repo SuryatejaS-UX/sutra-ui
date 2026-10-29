@@ -1,0 +1,620 @@
+/* ==========================================================================
+   SUTRA DESIGN SYSTEM: CSS TOKENS
+   Aligned with Astryx Standard & Apple Human Interface Guidelines
+   Source: DESIGN_SYSTEM.md
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. Brand & Accent Tokens
+     ------------------------------------------------------------------------ */
+  --color-brand-primary: #006EF5;
+  --color-brand-primary-hover: #005BD6;
+  --color-brand-primary-active: #004EB8;
+  --color-brand-subtle: #EFF6FF;
+  --color-brand-muted: #DBEAFE;
+  --color-brand-border: #BFDBFE;
+  --color-accent-purple: #8B5CF6;
+
+  /* ------------------------------------------------------------------------
+     2. Surface & Background Tokens (Light Theme Primary: Option 1 Modern Crisp)
+     ------------------------------------------------------------------------ */
+  --color-surface-canvas: #F8FAFC;        /* Crisp Slate-50 canvas for clear card separation */
+  --color-surface-canvas-subtle: #F1F5F9; /* Slate-100 for secondary areas / sidebar gutters */
+  --color-surface-card: #FFFFFF;          /* Pure white card surface that pops off canvas */
+  --color-surface-card-subtle: #F1F5F9;   /* Recessed wells (search resting, chat box, dropzones) */
+  --color-surface-card-hover: #F1F5F9;    /* Hover highlight for subtle card actions & buttons */
+  --color-surface-dock: rgba(255, 255, 255, 0.88);
+  --color-surface-dock-border: #E2E8F0;
+  --color-surface-dock-active: #EFF6FF;
+  --color-dock-btn-color: #475569;
+  --color-dock-btn-hover-bg: #F1F5F9;
+  --color-dock-btn-hover-color: #0F172A;
+  --color-dock-btn-active-bg: #EFF6FF;
+  --color-dock-btn-active-color: #006EF5;
+  --color-dock-btn-active-border: #BFDBFE;
+  --color-dock-btn-active-hover-bg: #DBEAFE;
+  --color-dock-btn-active-hover-color: #005BD6;
+  --color-dock-btn-active-hover-border: #93C5FD;
+  --color-surface-dock-logo-bg: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  --color-surface-dock-logo-color: #006EF5;
+  --color-surface-overlay: rgba(15, 23, 42, 0.45);
+
+  /* ------------------------------------------------------------------------
+     3. Text & Content Tokens
+     ------------------------------------------------------------------------ */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748B;
+  --color-text-disabled: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+  --color-text-brand: #006EF5;
+
+  /* Inline Code & Monospace Chips (Clean Flat Micro-Chip per Review Studio feedback) */
+  --color-code-bg: var(--color-surface-card, #FFFFFF);
+  --color-code-text: var(--color-text-primary, #0F172A);
+  --color-code-border: var(--color-border-default, #E2E8F0);
+  --color-code-shadow: none;
+
+  /* ------------------------------------------------------------------------
+     4. Status & Feedback Tokens
+     ------------------------------------------------------------------------ */
+  --color-status-neutral-text: #475569;
+  --color-status-neutral-bg: #F1F5F9;
+  --color-status-neutral-border: #E2E8F0;
+
+  --color-status-warning-text: #B45309;
+  --color-status-warning-bg: #FEF3C7;
+  --color-status-warning-border: #FDE68A;
+
+  --color-status-info-text: #2054B8;
+  --color-status-info-bg: #EEF4FE;
+  --color-status-info-border: #BFD5F8;
+
+  --color-status-success-text: #047857;
+  --color-status-success-bg: #ECFDF5;
+  --color-status-success-border: #A7F3D0;
+
+  --color-status-error-text: #B91C1C;
+  --color-status-error-bg: #FEF2F2;
+  --color-status-error-border: #FECACA;
+
+  --color-status-purple-text: #6D28D9;
+  --color-status-purple-bg: #F5F3FF;
+  --color-status-purple-border: #DDD6FE;
+
+  --color-status-cyan-text: #0891B2;
+  --color-status-cyan-bg: #ECFEFF;
+  --color-status-cyan-border: #A5F3FC;
+
+  /* Rating Star & Feedback */
+  --color-rating-star: #F59E0B;
+  --color-rating-star-empty: #CBD5E1;
+
+  /* Window & Stage Control Indicators (macOS standard) */
+  --color-control-close: #FF5F56;
+  --color-control-close-border: #E0443E;
+  --color-control-minimize: #FFBD2E;
+  --color-control-minimize-border: #DEA123;
+  --color-control-expand: #27C93F;
+  --color-control-expand-border: #1AAB29;
+
+  /* Third-Party Vendor Integration */
+  --color-brand-onedrive: #0078D4;
+  --color-brand-gdrive: #0066DA;
+
+  /* Vendor: Atlassian Jira Integration Mockup Tokens */
+  --color-vendor-jira-blue: #0052CC;
+  --color-vendor-jira-blue-hover: #0747A6;
+  --color-vendor-jira-navy: #172B4D;
+  --color-vendor-jira-subtle: #F4F5F7;
+  --color-vendor-jira-canvas: #FAFBFC;
+  --color-vendor-jira-button: #EBECF0;
+  --color-vendor-jira-border: #DFE1E6;
+  --color-vendor-jira-selected: #DEEBFF;
+  --color-vendor-jira-selected-border: #B3D4FF;
+  --color-vendor-jira-text: #172B4D;
+  --color-vendor-jira-text-secondary: #42526E;
+  --color-vendor-jira-text-subtle: #5E6C84;
+  --color-vendor-jira-text-muted: #6B778C;
+  --color-vendor-jira-text-body: #344563;
+  --color-vendor-jira-green: #00875A;
+  --color-vendor-jira-green-text: #006644;
+  --color-vendor-jira-green-bg: #E3FCEF;
+  --color-vendor-jira-green-border: #ABF5D1;
+  --color-vendor-jira-red: #DE350B;
+
+  /* Vendor: GitHub Dark Preview Mockup Tokens */
+  --color-vendor-github-dark-canvas: #0D1117;
+  --color-vendor-github-dark-card: #161B22;
+  --color-vendor-github-dark-hover: #21262D;
+  --color-vendor-github-dark-border: #30363D;
+  --color-vendor-github-dark-text: #C9D1D9;
+  --color-vendor-github-dark-text-muted: #8B949E;
+  --color-vendor-github-dark-text-white: #F0F6FC;
+
+  /* ------------------------------------------------------------------------
+     5. Border & Divider Tokens
+     ------------------------------------------------------------------------ */
+  --border-width-none: 0px;
+  --border-width-hairline: 1px;
+  --border-width-prominent: 2px;
+  --border-width-focus: 2px;
+  --border-width-accent: 3px;
+
+  --border-style-solid: solid;
+  --border-style-dashed: dashed;
+  --border-style-none: none;
+
+  --color-border-default: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+  --color-border-hover: #CBD5E1;
+  --color-border-focus: #64748B;
+  --color-border-brand: #006EF5;
+
+  /* ------------------------------------------------------------------------
+     6. Typography Primitives (Open Sans, Even Pixels Only)
+     ------------------------------------------------------------------------ */
+  --font-family-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-code: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --font-size-2xs: 0.6875rem; /* 11px */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-base: 0.875rem; /* 14px */
+  --font-size-md: 1.0rem;     /* 16px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 1.75rem;   /* 28px */
+  --font-size-3xl: 2.0rem;    /* 32px */
+  --font-size-4xl: 2.5rem;    /* 40px */
+  --font-size-5xl: 3.0rem;    /* 48px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Optical Typography Tracking (Apple HIG - Size-Specific Letter Spacing) */
+  --tracking-tighter: -0.025em; /* Large display titles >= 28px */
+  --tracking-tight: -0.015em;   /* Headings, modal titles, section headers (18px-24px) */
+  --tracking-normal: 0em;       /* Body copy, general UI (14px-16px) */
+  --tracking-wide: 0.015em;     /* Secondary UI, captions, metadata (12px-13px) */
+  --tracking-wider: 0.03em;     /* Overlines, micro labels, badges, uppercase tags (10px-11px) */
+
+  /* ------------------------------------------------------------------------
+     7. Icon Tokens (SVG Only)
+     ------------------------------------------------------------------------ */
+  --icon-size-xs: 12px;
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 32px;
+  --icon-size-2xl: 48px;
+
+  --icon-stroke-default: 1.5px;
+  --icon-stroke-bold: 2.0px;
+
+  --color-icon-primary: #0F172A;
+  --color-icon-secondary: #475569;
+  --color-icon-muted: #94A3B8;
+  --color-icon-brand: #006EF5;
+  --color-icon-inverse: #FFFFFF;
+  --color-icon-disabled: #CBD5E1;
+  --color-icon-success: #059669;
+  --color-icon-warning: #D97706;
+  --color-icon-error: #DC2626;
+
+  /* ------------------------------------------------------------------------
+     8. Spacing Scale (4px/8px Geometric Rhythm)
+     ------------------------------------------------------------------------ */
+  --spacing-0: 0rem;          /* 0px */
+  --spacing-0-5: 0.125rem;    /* 2px */
+  --spacing-1: 0.25rem;       /* 4px */
+  --spacing-1-5: 0.375rem;    /* 6px */
+  --spacing-2: 0.5rem;        /* 8px */
+  --spacing-2-5: 0.625rem;    /* 10px */
+  --spacing-3: 0.75rem;       /* 12px */
+  --spacing-3-5: 0.875rem;    /* 14px */
+  --spacing-4: 1.0rem;        /* 16px */
+  --spacing-5: 1.25rem;       /* 20px */
+  --spacing-6: 1.5rem;        /* 24px */
+  --spacing-8: 2.0rem;        /* 32px */
+  --spacing-10: 2.5rem;       /* 40px */
+  --spacing-12: 3.0rem;       /* 48px */
+
+  /* ------------------------------------------------------------------------
+     9. Element Heights
+     ------------------------------------------------------------------------ */
+  --size-element-sm: 28px;
+  --size-element-md: 32px;
+  --size-element-lg: 36px;
+  --size-element-xl: 44px;
+  --size-modal-sm: 440px;
+  --btn-min-width-showcase: 140px;
+
+  /* ------------------------------------------------------------------------
+     10. Border Radius Scale (Apple Continuous Curves)
+     ------------------------------------------------------------------------ */
+  --radius-none: 0px;
+  --radius-2xs: 2px;          /* Micro indicators, progress ticks, timeline dots */
+  --radius-badge: 3px;        /* Lozenges, status badges, compact tags */
+  --radius-xs: 4px;           /* Micro tags, inner chips, toggles */
+  --radius-sm: 6px;           /* Tooltips, context menus, action items */
+  --radius-inner: 8px;
+  --radius-element: 12px;
+  --radius-container: 16px;
+  --radius-chat: 24px;
+  --radius-page: 32px;
+  --radius-full: 9999px;
+
+  /* ------------------------------------------------------------------------
+     11. Elevation & Shadows (Neosoft Tactile Depth & Glassmorphism)
+     ------------------------------------------------------------------------ */
+  --shadow-card-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --shadow-card-elevated: 0 4px 12px -2px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-card-floating: 0 12px 28px -4px rgba(15, 23, 42, 0.10), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+  --shadow-brand-glow: 0 4px 14px 0 rgba(0, 110, 245, 0.25);
+  --shadow-menu-floating: 0 12px 32px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+  --shadow-popover-subtle: 0 6px 20px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+
+  /* Apple Translucent Glass Materials & Menus */
+  --material-glass-chrome-bg: rgba(255, 255, 255, 0.82);
+  --material-glass-blur: blur(20px) saturate(180%);
+  --material-glass-blur-subtle: blur(12px) saturate(160%);
+  --material-specular-edge: 1px solid rgba(255, 255, 255, 0.55);
+  --material-glass-menu-bg: rgba(255, 255, 255, 0.94);
+  --material-menu-bg: var(--color-surface-card, #FFFFFF);
+  --material-glass-tooltip-bg: rgba(15, 23, 42, 0.96);
+  --material-glass-overlay-bg: rgba(15, 23, 42, 0.45);
+
+  /* Dedicated Tooltip Design Tokens (Apple HIG / Linear Inverted System) */
+  --tooltip-bg: rgba(15, 23, 42, 0.96);
+  --tooltip-text: #FFFFFF;
+  --tooltip-border: rgba(255, 255, 255, 0.14);
+  --tooltip-kbd-bg: rgba(255, 255, 255, 0.15);
+  --tooltip-kbd-border: rgba(255, 255, 255, 0.22);
+  --tooltip-kbd-text: #E2E8F0;
+
+  /* ------------------------------------------------------------------------
+     12. Motion & Transitions (Apple HIG Fluid Physics)
+     ------------------------------------------------------------------------ */
+  /* Apple HIG Physical Curves */
+  --ease-apple-default: cubic-bezier(0.25, 1, 0.5, 1);    /* Standard smooth curve */
+  --ease-apple-spring: cubic-bezier(0.16, 1, 0.3, 1);     /* Responsive spring curve: fast out, gentle settle */
+  --ease-apple-settle: cubic-bezier(0.25, 1, 0.5, 1);     /* Critically damped UI settle, zero overshoot */
+  --ease-apple-exit: cubic-bezier(0.4, 0, 1, 1);          /* Snappy dismiss / exit curve */
+  --ease-apple-drawer: cubic-bezier(0.32, 0.72, 0, 1);    /* iOS-like drawer / sheet curve */
+  --ease-apple-bounce: cubic-bezier(0.16, 1, 0.3, 1);     /* Refined physical spring replacing cartoon wobble */
+
+  /* Duration Hierarchy */
+  --duration-instant: 100ms;  /* Press feedback, micro-toggles, tactile states */
+  --duration-micro: 160ms;    /* Tooltips, dropdown pops, tab highlights */
+  --duration-normal: 240ms;   /* Modals, drawer slides, view crossfades */
+  --duration-expand: 320ms;   /* Large pane layout reconfigurations */
+
+  --focus-ring: 0 0 0 3px rgba(0, 110, 245, 0.25);
+  --focus-ring-subtle: 0 0 0 2px rgba(0, 110, 245, 0.18);
+
+  /* ------------------------------------------------------------------------
+     13. Button Component Tokens (Aligned with BUTTON_DESIGN_SYSTEM.md)
+     ------------------------------------------------------------------------ */
+  /* Shared Base Tokens */
+  --btn-radius: var(--radius-full, 9999px);
+  --btn-font-weight: var(--font-weight-medium, 500);
+  --btn-font-weight-emphasis: var(--font-weight-semibold, 600);
+  /* Composite-only transitions: avoid 'all' to prevent layout recalculations */
+  --btn-transition: transform var(--duration-instant, 100ms) var(--ease-apple-spring),
+                    background-color var(--duration-micro, 160ms) ease,
+                    border-color var(--duration-micro, 160ms) ease,
+                    box-shadow var(--duration-micro, 160ms) ease,
+                    color var(--duration-micro, 160ms) ease;
+
+  /* Sizing Scale */
+  --btn-height-xs: 28px;
+  --btn-height-sm: 32px;
+  --btn-height-md: 36px;
+  --btn-height-lg: 44px;
+  --btn-height-xl: 52px;
+
+  --btn-padding-xs: 0 10px;
+  --btn-padding-sm: 0 14px;
+  --btn-padding-md: 0 18px;
+  --btn-padding-lg: 0 22px;
+  --btn-padding-xl: 0 26px;
+
+  --btn-font-size-xs: var(--font-size-xs, 12px);
+  --btn-font-size-sm: var(--font-size-xs, 12px);
+  --btn-font-size-md: var(--font-size-base, 14px);
+  --btn-font-size-lg: var(--font-size-md, 16px);
+  --btn-font-size-xl: var(--font-size-md, 16px);
+
+  --btn-gap-xs: 4px;
+  --btn-gap-sm: 4px;
+  --btn-gap-md: 6px;
+  --btn-gap-lg: 8px;
+  --btn-gap-xl: 8px;
+
+  /* Primary Button */
+  --btn-primary-bg: var(--color-brand-primary, #006EF5);
+  --btn-primary-text: var(--color-text-inverse, #FFFFFF);
+  --btn-primary-border: transparent;
+  --btn-primary-bg-hover: var(--color-brand-primary-hover, #005BD6);
+  --btn-primary-bg-active: var(--color-brand-primary-active, #004EB8);
+  --btn-primary-shadow: 0 1px 2px 0 rgba(0, 110, 245, 0.2), 0 2px 4px 0 rgba(0, 110, 245, 0.12);
+  --btn-primary-shadow-hover: 0 4px 14px 0 rgba(0, 110, 245, 0.28);
+
+  /* Secondary Button (Brand Outlined) */
+  --btn-secondary-bg: var(--color-surface-card, #FFFFFF);
+  --btn-secondary-border: var(--color-brand-primary, #006EF5);
+  --btn-secondary-text: var(--color-brand-primary, #006EF5);
+  --btn-secondary-bg-hover: var(--color-brand-subtle, #EFF6FF);
+  --btn-secondary-border-hover: var(--color-brand-primary-hover, #005BD6);
+  --btn-secondary-text-hover: var(--color-brand-primary-hover, #005BD6);
+  --btn-secondary-bg-active: #DBEAFE;
+
+  /* Ghost Button (Modal Cancel / Subtle Neutral) */
+  --btn-ghost-bg: var(--color-surface-card, #FFFFFF);
+  --btn-ghost-border: var(--color-border-default, #E2E8F0);
+  --btn-ghost-text: var(--color-text-secondary, #475569);
+  --btn-ghost-bg-hover: var(--color-surface-canvas-subtle, #F8FAFC);
+  --btn-ghost-border-hover: var(--color-border-hover, #CBD5E1);
+  --btn-ghost-text-hover: var(--color-text-primary, #0F172A);
+  --btn-ghost-bg-active: var(--color-surface-card-subtle, #F1F5F9);
+
+  /* Text Button (Zero Border/Fill) */
+  --btn-text-color: var(--color-brand-primary, #006EF5);
+  --btn-text-bg-hover: rgba(0, 110, 245, 0.08);
+  --btn-text-color-hover: var(--color-brand-primary-hover, #005BD6);
+  --btn-text-bg-active: rgba(0, 110, 245, 0.16);
+  --btn-text-color-active: var(--color-brand-primary-active, #004EB8);
+
+  /* Semantic Destructive */
+  --btn-destructive-filled-bg: var(--color-status-error-text, #DC2626);
+  --btn-destructive-filled-hover: #B91C1C;
+  --btn-destructive-filled-active: #991B1B;
+  --btn-destructive-tonal-bg: var(--color-status-error-bg, #FEF2F2);
+  --btn-destructive-tonal-text: var(--color-status-error-text, #B91C1C);
+  --btn-destructive-tonal-border: var(--color-status-error-border, #FECACA);
+  --btn-destructive-tonal-hover: #FEE2E2;
+
+  /* Semantic Success */
+  --btn-success-filled-bg: var(--color-status-success-text, #059669);
+  --btn-success-filled-hover: #047857;
+  --btn-success-filled-active: #065F46;
+  --btn-success-tonal-bg: var(--color-status-success-bg, #ECFDF5);
+  --btn-success-tonal-text: var(--color-status-success-text, #047857);
+  --btn-success-tonal-border: var(--color-status-success-border, #A7F3D0);
+  --btn-success-tonal-hover: #D1FAE5;
+
+  /* Semantic Warning */
+  --btn-warning-filled-bg: var(--color-status-warning-text, #D97706);
+  --btn-warning-filled-hover: #B45309;
+  --btn-warning-filled-active: #92400E;
+  --btn-warning-tonal-bg: var(--color-status-warning-bg, #FEF3C7);
+  --btn-warning-tonal-text: var(--color-status-warning-text, #B45309);
+  --btn-warning-tonal-border: var(--color-status-warning-border, #FDE68A);
+  --btn-warning-tonal-hover: #FDE68A;
+
+  /* Semantic Info (Sky) */
+  --btn-info-filled-bg: #0284C7;
+  --btn-info-filled-hover: #0369A1;
+  --btn-info-filled-active: #075985;
+  --btn-info-tonal-bg: #F0F9FF;
+  --btn-info-tonal-text: #0369A1;
+  --btn-info-tonal-border: #BAE6FD;
+  --btn-info-tonal-hover: #E0F2FE;
+}
+
+/* ==========================================================================
+   SURFACE THEMES (Previewable Live in UI)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   THEME 2: DUAL-TONE CONTRAST DOCK
+   Grounds the interface with a deep obsidian dock on the left, paired with
+   a crisp Slate-50 canvas and white floating cards.
+   -------------------------------------------------------------------------- */
+[data-surface-theme="contrast"] {
+  --color-surface-canvas: #F8FAFC;
+  --color-surface-canvas-subtle: #F1F5F9;
+  --color-surface-card: #FFFFFF;
+  --color-surface-card-subtle: #F1F5F9;
+  --color-surface-card-hover: #F1F5F9;
+
+  /* High-Contrast Left Navigation Rail */
+  --color-surface-dock: #0F172A;
+  --color-surface-dock-border: #1E293B;
+  --color-dock-btn-color: #94A3B8;
+  --color-dock-btn-hover-bg: #1E293B;
+  --color-dock-btn-hover-color: #F8FAFC;
+  --color-dock-btn-active-bg: #1E293B;
+  --color-dock-btn-active-color: #38BDF8;
+  --color-dock-btn-active-border: #334155;
+  --color-dock-btn-active-hover-bg: #243247;
+  --color-dock-btn-active-hover-color: #38BDF8;
+  --color-dock-btn-active-hover-border: #475569;
+  --color-surface-dock-logo-bg: #1E293B;
+  --color-surface-dock-logo-color: #38BDF8;
+}
+
+/* --------------------------------------------------------------------------
+   THEME 3: WARM MINIMALIST
+   Soothing, warm-tinted neutral zinc canvas with soft white cards and
+   calibrated low-glare borders.
+   -------------------------------------------------------------------------- */
+[data-surface-theme="warm"] {
+  --color-surface-canvas: #F5F5F7;
+  --color-surface-canvas-subtle: #EBEBEF;
+  --color-surface-card: #FFFFFF;
+  --color-surface-card-subtle: #EFEFF3;
+  --color-surface-card-hover: #E4E4E7;
+  --color-surface-dock: rgba(245, 245, 247, 0.90);
+  --color-surface-dock-border: #E4E4E7;
+  --color-dock-btn-color: #52525B;
+  --color-dock-btn-hover-bg: #E4E4E7;
+  --color-dock-btn-hover-color: #18181B;
+  --color-dock-btn-active-bg: #E4E4E7;
+  --color-dock-btn-active-color: #006EF5;
+  --color-dock-btn-active-border: #D4D4D8;
+  --color-dock-btn-active-hover-bg: #D4D4D8;
+  --color-dock-btn-active-hover-color: #005BD6;
+  --color-dock-btn-active-hover-border: #A1A1AA;
+  --color-border-default: #E4E4E7;
+  --color-border-subtle: #EFEFF3;
+  --color-border-hover: #D4D4D8;
+  --color-text-primary: #18181B;
+  --color-text-secondary: #52525B;
+  --color-text-tertiary: #71717A;
+  --shadow-card-subtle: 0 1px 3px 0 rgba(24, 24, 27, 0.05), 0 1px 2px -1px rgba(24, 24, 27, 0.03);
+  --shadow-card-elevated: 0 4px 12px -2px rgba(24, 24, 27, 0.07), 0 2px 4px -2px rgba(24, 24, 27, 0.03);
+}
+
+/* --------------------------------------------------------------------------
+   THEME 4: OBSIDIAN DARK
+   True neutral obsidian & charcoal surfaces (zero blue cast) calibrated
+   for zero ocular fatigue in long enterprise sessions.
+   -------------------------------------------------------------------------- */
+[data-theme="dark"],
+[data-surface-theme="dark"],
+body.theme-dark {
+  --color-surface-canvas: #0F0F12;
+  --color-surface-canvas-subtle: #15151A;
+  --color-surface-card: #19191E;
+  --color-surface-card-subtle: #212128;
+  --color-surface-card-hover: #262630;
+  --color-surface-dock: #131317;
+  --color-surface-dock-border: #24242C;
+  --color-dock-btn-color: #A1A1AA;
+  --color-dock-btn-hover-bg: #212128;
+  --color-dock-btn-hover-color: #E9E7E7;
+  --color-dock-btn-active-bg: #24242C;
+  --color-dock-btn-active-color: #60A5FA;
+  --color-dock-btn-active-border: #366CE2;
+  --color-dock-btn-active-hover-bg: #2C2C36;
+  --color-dock-btn-active-hover-color: #93C5FD;
+  --color-dock-btn-active-hover-border: #60A5FA;
+  --color-surface-dock-logo-bg: #212128;
+  --color-surface-dock-logo-color: #60A5FA;
+  --color-surface-overlay: rgba(0, 0, 0, 0.75);
+
+  --color-border-default: #2A2A32;
+  --color-border-subtle: #1F1F26;
+  --color-border-hover: #3C3C48;
+  --color-border-focus: #4B83EB;
+  --color-border-brand: #366CE2;
+
+  --color-text-primary: #E9E7E7;
+  --color-text-secondary: #A1A1AA;
+  --color-text-tertiary: #71717A;
+  --color-text-disabled: #52525B;
+  --color-text-inverse: #FFFFFF;
+  --color-text-brand: #60A5FA;
+
+  --color-icon-primary: #E9E7E7;
+  --color-icon-secondary: #A1A1AA;
+  --color-icon-muted: #71717A;
+  --color-icon-brand: #6FA1F5;
+
+  --shadow-card-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px -1px rgba(0, 0, 0, 0.25);
+  --shadow-card-elevated: 0 4px 12px -2px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-card-floating: 0 12px 28px -4px rgba(0, 0, 0, 0.6), 0 4px 8px -2px rgba(0, 0, 0, 0.35);
+
+  --material-glass-chrome-bg: rgba(25, 25, 30, 0.85);
+  --material-glass-menu-bg: rgba(25, 25, 30, 0.96);
+  --material-menu-bg: var(--color-surface-card, #19191E);
+  --material-glass-tooltip-bg: rgba(30, 30, 38, 0.96);
+
+  /* Dedicated Tooltip Tokens in Dark Mode */
+  --tooltip-bg: rgba(30, 30, 38, 0.96);
+  --tooltip-text: #E9E7E7;
+  --tooltip-border: rgba(255, 255, 255, 0.18);
+  --tooltip-kbd-bg: rgba(255, 255, 255, 0.12);
+  --tooltip-kbd-border: rgba(255, 255, 255, 0.20);
+  --tooltip-kbd-text: #E4E4E7;
+
+  /* Inline Code & Monospace Chips in Dark Mode */
+  --color-code-bg: rgba(255, 255, 255, 0.06);
+  --color-code-text: var(--color-text-primary, #E9E7E7);
+  --color-code-border: rgba(255, 255, 255, 0.14);
+  --color-code-shadow: none;
+
+  /* Brand Tokens in Dark Mode (Soft Non-Poking Velvet Palette) */
+  --color-brand-primary: #366CE2;
+  --color-brand-primary-hover: #4B7FE8;
+  --color-brand-primary-active: #2B5EC8;
+  --color-brand-subtle: rgba(54, 108, 226, 0.12);
+  --color-brand-muted: rgba(54, 108, 226, 0.20);
+  --color-brand-border: rgba(54, 108, 226, 0.35);
+
+  /* Primary Button Tokens in Dark Mode (Pure White Text locked for WCAG AA 4.77:1) */
+  --btn-primary-bg: #366CE2;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-border: transparent;
+  --btn-primary-bg-hover: #4B7FE8;
+  --btn-primary-bg-active: #2B5EC8;
+  --btn-primary-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35), 0 2px 4px 0 rgba(54, 108, 226, 0.20);
+  --btn-primary-shadow-hover: 0 4px 14px 0 rgba(54, 108, 226, 0.35);
+
+  /* Status Colors in Dark Mode */
+  --color-status-neutral-bg: #212128;
+  --color-status-neutral-text: #A1A1AA;
+  --color-status-neutral-border: #2A2A32;
+  --color-status-success-bg: rgba(16, 185, 129, 0.15);
+  --color-status-success-text: #34D399;
+  --color-status-success-border: rgba(16, 185, 129, 0.3);
+  --color-status-error-bg: rgba(239, 68, 68, 0.15);
+  --color-status-error-text: #F87171;
+  --color-status-error-border: rgba(239, 68, 68, 0.3);
+  --color-status-warning-bg: rgba(245, 158, 11, 0.15);
+  --color-status-warning-text: #FBBF24;
+  --color-status-warning-border: rgba(245, 158, 11, 0.3);
+  --color-status-info-bg: rgba(59, 130, 246, 0.15);
+  --color-status-info-text: #60A5FA;
+  --color-status-info-border: rgba(59, 130, 246, 0.3);
+  --color-status-purple-bg: rgba(168, 85, 247, 0.15);
+  --color-status-purple-text: #C084FC;
+  --color-status-purple-border: rgba(168, 85, 247, 0.3);
+  --color-status-cyan-bg: rgba(6, 182, 212, 0.15);
+  --color-status-cyan-text: #22D3EE;
+  --color-status-cyan-border: rgba(6, 182, 212, 0.3);
+
+  /* Button Tonal Tokens in Dark Mode */
+  --btn-destructive-tonal-bg: rgba(239, 68, 68, 0.15);
+  --btn-destructive-tonal-hover: rgba(239, 68, 68, 0.25);
+  --btn-destructive-tonal-text: #F87171;
+  --btn-destructive-tonal-border: rgba(239, 68, 68, 0.3);
+  --btn-success-tonal-bg: rgba(16, 185, 129, 0.15);
+  --btn-success-tonal-hover: rgba(16, 185, 129, 0.25);
+  --btn-success-tonal-text: #34D399;
+  --btn-success-tonal-border: rgba(16, 185, 129, 0.3);
+  --btn-warning-tonal-bg: rgba(245, 158, 11, 0.15);
+  --btn-warning-tonal-hover: rgba(245, 158, 11, 0.25);
+  --btn-warning-tonal-text: #FBBF24;
+  --btn-warning-tonal-border: rgba(245, 158, 11, 0.3);
+  --btn-info-tonal-bg: rgba(59, 130, 246, 0.15);
+  --btn-info-tonal-hover: rgba(59, 130, 246, 0.25);
+  --btn-info-tonal-text: #60A5FA;
+  --btn-info-tonal-border: rgba(59, 130, 246, 0.3);
+
+  /* Vendor: Atlassian Jira Integration Mockup Tokens (Dark Mode) */
+  --color-vendor-jira-blue: #58A6FF;
+  --color-vendor-jira-blue-hover: #79C0FF;
+  --color-vendor-jira-navy: #F0F6FC;
+  --color-vendor-jira-subtle: #0D1117;
+  --color-vendor-jira-canvas: #21262D;
+  --color-vendor-jira-button: #21262D;
+  --color-vendor-jira-border: #30363D;
+  --color-vendor-jira-selected: rgba(56, 139, 253, 0.15);
+  --color-vendor-jira-selected-border: rgba(56, 139, 253, 0.4);
+  --color-vendor-jira-text: #F0F6FC;
+  --color-vendor-jira-text-secondary: #8B949E;
+  --color-vendor-jira-text-subtle: #8B949E;
+  --color-vendor-jira-text-muted: #8B949E;
+  --color-vendor-jira-text-body: #C9D1D9;
+  --color-vendor-jira-green: #2EA043;
+  --color-vendor-jira-green-text: #3FB950;
+  --color-vendor-jira-green-bg: rgba(46, 160, 67, 0.15);
+  --color-vendor-jira-green-border: rgba(46, 160, 67, 0.4);
+  --color-vendor-jira-red: #F85149;
+}
